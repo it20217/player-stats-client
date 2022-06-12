@@ -3,4 +3,12 @@
   width: 100%;
   background-color: white;
   min-height: 8vh;
+
+  display: flex;
+  flex-direction: row;
+
+  >img {
+    margin: auto 0;
+    height: 6vmin;
+  }
 }
