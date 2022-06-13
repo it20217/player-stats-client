@@ -7,6 +7,9 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <h1 className="text-white text-3xl font-bold underline">
+        Hello world!
+      </h1>
       
     </div>
   );

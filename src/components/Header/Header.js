@@ -8,6 +8,7 @@ function Header() {
   return(
     <div className={styles["Header"]}>
       <img src={Logo} alt="Logo"/>
+      
     </div>
   )
 }
