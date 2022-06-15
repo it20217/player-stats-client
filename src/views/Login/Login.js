@@ -24,11 +24,11 @@ function Login() {
                   <input id="rememberme" name="rememberme" className="focus:outline-none focus:ring-2 focus:ring-slate-600 w-3 h-3 mr-2 bg-white dark:bg-slate-600" type="checkbox" />
                   <label for="rememberme" className="text-xs dark:text-gray-100">Remember Me</label>
               </div>
-              <a className="text-xs text-slate-700 focus:outline-none focus:underline focus:text-gray-800 hover:text-gray-800" href="javascript: void(0)">Forgot Password?</a>
+              <a className="text-xs text-slate-700 focus:outline-none focus:underline focus:text-gray-800 hover:text-gray-800">Forgot Password?</a>
           </div>
           <div class="px-2 mb-16 sm:mb-56 md:mb-16 sm:px-6">
-              <button className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-slate-100 w-full bg-slate-700 transition duration-150 ease-in-out hover:bg-slate-600 rounded text-white px-8 py-3 text-sm mt-6">Login</button>
-              <p className="mt-16 text-xs text-center dark:text-gray-100">Don’t Have An Account? <a class="focus:underline text-slate-700 focus:outline-none focus:text-gray-800 hover:text-gray-800 " href="javascript: void(0)">Sign Up</a></p>
+              <button className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-slate-100 w-full bg-slate-700 transition duration-150 ease-in-out hover:bg-slate-800 hover:text-yellow-400 rounded text-white px-8 py-3 text-sm mt-6">Login</button>
+              <p className="mt-16 text-xs text-center dark:text-gray-100">Don’t Have An Account? <a class="focus:underline text-slate-700 focus:outline-none focus:text-gray-800 hover:text-gray-800">Sign Up</a></p>
           </div>
         </form>
       </div>

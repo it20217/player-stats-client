@@ -7,12 +7,16 @@
   display: flex;
   flex-direction: row;
   place-content: space-between;
-
+}
+.img-container {
   >img {
     margin: auto 20px;
     height: 6vmin;
   }
-  .btn-container {
-    margin: auto 40px ; 
+  :hover {
+    cursor: pointer;
   }
+}
+.btn-container {
+  margin: auto 20px ; 
 }
