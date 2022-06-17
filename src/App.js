@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
+import UserPage from './views/UserPage/UserPage';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
         <Route 
             path='/login' 
             element={<Login />} 
+          />
+        <Route 
+            path='/signup' 
+            element={<UserPage />} 
           />
         </Routes>
       </div>

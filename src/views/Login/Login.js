@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 
 function Login() {
 
@@ -12,7 +12,7 @@ function Login() {
           <div className="mt-12 w-full px-2 sm:px-6">
               <div class="flex flex-col mt-5">
                   <label for="email" className="text-lg font-semibold dark:text-gray-100 leading-tight">Email</label>
-                  <input required name="email" id="email" class="h-10 px-2 w-full rounded mt-2 text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 dark:border-gray-700 dark:focus:border-indigo-600 focus:outline-none focus:border focus:border-indigo-700 border-gray-300 border shadow" type="email" />
+                  <input required name="email" id="email" className="h-10 px-2 w-full rounded mt-2 text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 dark:border-gray-700 dark:focus:border-indigo-600 focus:outline-none focus:border focus:border-indigo-700 border-gray-300 border shadow" type="email" />
               </div>
               <div className="flex flex-col mt-5">
                   <label for="password" className="text-lg font-semibold dark:text-gray-100 fleading-tight">Password</label>
@@ -26,9 +26,21 @@ function Login() {
               </div>
               <a className="text-xs text-slate-700 focus:outline-none focus:underline focus:text-gray-800 hover:text-gray-800">Forgot Password?</a>
           </div>
-          <div class="px-2 mb-16 sm:mb-56 md:mb-16 sm:px-6">
-              <button className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-slate-100 w-full bg-slate-700 transition duration-150 ease-in-out hover:bg-slate-800 hover:text-yellow-400 rounded text-white px-8 py-3 text-sm mt-6">Login</button>
-              <p className="mt-16 text-xs text-center dark:text-gray-100">Don’t Have An Account? <a class="focus:underline text-slate-700 focus:outline-none focus:text-gray-800 hover:text-gray-800">Sign Up</a></p>
+          <div className="px-2 mb-16 sm:mb-56 md:mb-16 sm:px-6">
+              <button 
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-slate-100 w-full bg-slate-700 transition duration-150 ease-in-out hover:bg-slate-800 hover:text-yellow-400 rounded text-white px-8 py-3 text-sm mt-6"
+              >
+                Login
+              </button>
+              <p className="mt-16 text-xs text-center dark:text-gray-100">
+                Don’t Have An Account? 
+                <Link 
+                  to='/signup'
+                  className="mx-4 focus:underline text-slate-700 focus:outline-none focus:text-gray-800 hover:text-gray-800"
+                >
+                  Sign Up
+                </Link>
+              </p>
           </div>
         </form>
       </div>
