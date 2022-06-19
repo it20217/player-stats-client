@@ -6,6 +6,10 @@ import Header from './components/Header/Header';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import UserPage from './views/UserPage/UserPage';
+import SignUp from './views/SignUp/SignUp';
+import PlayerManagement from './views/PlayerManagement/PlayerManagement';
+import UserManagement from './views/UserManagement/UserManagement';
+import EventManagement from './views/EventManagement/EventManagement';
 
 function App() {
   return (
@@ -23,7 +27,23 @@ function App() {
           />
         <Route 
             path='/signup' 
+            element={<SignUp />} 
+          />
+        <Route 
+            path='/user' 
             element={<UserPage />} 
+          />
+        <Route 
+            path='/userprofile' 
+            element={<UserManagement />} 
+          />
+        <Route 
+            path='/playerprofile' 
+            element={<PlayerManagement />} 
+          />
+        <Route 
+            path='/events' 
+            element={<EventManagement />} 
           />
         </Routes>
       </div>
