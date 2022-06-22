@@ -1,7 +1,6 @@
-
 import { Link } from 'react-router-dom'
 
-function SignUp() {
+function SignUp2() {
 
   return(
 
@@ -11,11 +10,11 @@ function SignUp() {
         <div className="lg:max-w-[1124px] md:max-w-[696px] max-w-[343px] mx-auto bg-white px-6 py-4 rounded shadow">
           <div>
             <p className="text-xl font-semibold leading-tight text-gray-800 text-center">
-              Create New Account
+              Add New Player
             </p>
             <div className="flex items-center justify-center gap-2 pt-5">
               <div className>
-                <p className="bg-slate-700 text-white text-sm font-semibold border rounded-full w-8 h-8 flex justify-center items-center">
+                <p className="text-sm font-semibold text-gray-500 border rounded-full w-8 h-8 flex justify-center items-center">
                   1
                 </p>
               </div>
@@ -56,7 +55,7 @@ function SignUp() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-gray-500 font-semibold leading-none border rounded-full w-8 h-8 flex justify-center items-center text-center">
+                <p className="bg-slate-700 text-white text-sm font-semibold border rounded-full w-8 h-8 flex justify-center items-center">
                   2
                 </p>
               </div>
@@ -116,7 +115,7 @@ function SignUp() {
           </div>
           <div className="pt-5">
             <p className="mt-16 text-xl font-medium leading-tight text-gray-800">
-              Personal Information
+              Player Information
             </p>
           </div>
           <div className="mt-8 lg:flex md:block block justify-center gap-4 pt-6">
@@ -148,7 +147,7 @@ function SignUp() {
           <div className="lg:flex md:block block justify-center gap-4 pt-6">
             <div className="w-full">
               <p className="text-base leading-none text-gray-800">
-                Email
+                Birth date
               </p>
               <input
                 type="text"
@@ -160,7 +159,7 @@ function SignUp() {
             </div>
             <div className="w-full">
               <p className="text-base leading-none text-gray-800">
-                Phone
+                Home club
               </p>
               <input
                 type="text"
@@ -171,86 +170,9 @@ function SignUp() {
               />
             </div>
           </div>
-          <div className=" mt-16 lg:flex md:block block justify-center gap-4 pt-6">
-            <div className="w-full">
-              <p className="text-base leading-none text-gray-800">
-                Password
-              </p>
-              <input
-                type="text"
-                name
-                id
-                placeholder="Enter your password"
-                className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
-              />
-            </div>
-            <div className="w-full">
-              <p className="text-base leading-none text-gray-800">
-                Confirm Password
-              </p>
-              <input
-                type="text"
-                name
-                id
-                placeholder="Confirm your password"
-                className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
-              />
-            </div>
-          </div>
-          <div className="mt-16 pt-6">
-            <div className="lg:flex md:block block justify-between gap-4">
-              <div className="w-full">
-                <p className="text-base leading-none text-gray-800">
-                  Street Address
-                </p>
-                <input
-                  type="text"
-                  name
-                  id
-                  placeholder="Enter your street address"
-                  className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
-                />
-              </div>
-              <div className="w-full">
-                <p className="text-base leading-none text-gray-800 lg:pt-0 md:pt-3 pt-3">
-                  City
-                </p>
-                <input
-                  type="text"
-                  name
-                  id
-                  placeholder="Enter your city name"
-                  className="focus:outline-none border border-gray-300 py-3 pl-3 rounded mt-4 w-full"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="lg:flex md:block block justify-between gap-5 items-center pt-5">
-            <div className="w-full">
-              <p className="text-base leading-none text-gray-800 pt-3">
-                Postal Code
-              </p>
-              <div className="border border-gray-300 focus:bg-gray-50 rounded w-full px-4 py-3 mt-4">
-                <input
-                  className="leading-none text-gray-600 focus:outline-none"
-                  type="text"
-                  placeholder="Enter postal code"
-                />
-              </div>
-            </div>
-            <div className="w-full">
-              <p className="text-base leading-none text-gray-800 pt-3">
-                County
-              </p>
-              <div className="border border-gray-300 rounded px-4 py-3 mt-4">
-                <input
-                  type="text"
-                  placeholder="County"
-                  className="leading-none text-gray-600 focus:outline-none"
-                />
-              </div>
-            </div>
-          </div>
+          
+          
+          
           <div>
             <div className="mt-16 lg:block md:hidden hidden">
               <div className="flex justify-between items-center">
@@ -277,10 +199,16 @@ function SignUp() {
                 </Link>
                 </div>
                 <div className="flex gap-5 pt-4">
-                  
+                  <Link 
+                    to="/signup"
+                    className="text-slate-700 border border-slate-700 px-3 py-3 rounded font-medium  hover:bg-slate-50"
+                  >
+                    Previous Step
+                  </Link>
+
                   <Link
-                    to="/signup_2"
-                    className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+                    to="/signup_3"
+                    className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium hover:bg-slate-800"
                   >
                     Next Step
                     <svg
@@ -303,11 +231,9 @@ function SignUp() {
               </div>
             </div>
             <div className="lg:hidden md:block block pt-4">
-              <Link
-                to="/signup_2"
+              <Link 
+                to="/signup_3"
                 className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
-
-
               >
                 Next Step
                 <svg
@@ -326,7 +252,12 @@ function SignUp() {
                   />
                 </svg>
               </Link>
-              
+              <Link
+                to="/signup"
+                className="text-slate-700 border border-slate-700 px-6 py-3 rounded font-medium w-full mt-4 hover:bg-slate-50"
+              >
+                Previous Step
+              </Link>
               <div className="flex justify-center items-center gap-3 pt-4">
                 <svg
                   width={18}
@@ -358,4 +289,4 @@ function SignUp() {
   )
 }
 
-export default SignUp;
+export default SignUp2;

@@ -7,6 +7,8 @@ import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import UserPage from './views/UserPage/UserPage';
 import SignUp from './views/SignUp/SignUp';
+import SignUp2 from './views/SignUp/SignUp2';
+import SignUp3 from './views/SignUp/SignUp3';
 import PlayerManagement from './views/PlayerManagement/PlayerManagement';
 import UserManagement from './views/UserManagement/UserManagement';
 import EventManagement from './views/EventManagement/EventManagement';
@@ -28,6 +30,14 @@ function App() {
         <Route 
             path='/signup' 
             element={<SignUp />} 
+          />
+        <Route 
+            path='/signup_2' 
+            element={<SignUp2 />} 
+          />
+        <Route 
+            path='/signup_3' 
+            element={<SignUp3 />} 
           />
         <Route 
             path='/user' 

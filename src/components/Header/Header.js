@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 /** Styles */
 import styles from "./Header.module.scss";
 /** Images */
-import Logo from "../../images/TS_Logo.png";
+import Logo from "../../images/Logo.png";
 
 function Header() { 
   let navigate = useNavigate();
@@ -14,6 +14,7 @@ function Header() {
       >
         <img src={Logo} alt="Logo"/>
       </div>
+      <div className={styles["text-logo"]}>Football academy</div>
       <div className={styles["btn-container"]}>
         
         <Link 

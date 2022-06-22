@@ -9,6 +9,7 @@
   place-content: space-between;
 }
 .img-container {
+  margin: auto;
   >img {
     margin: auto 20px;
     height: 6vmin;
@@ -16,6 +17,12 @@
   :hover {
     cursor: pointer;
   }
+}
+.text-logo {
+  width: 100%;
+  text-align: left;
+  align-self: center;
+  margin-left: 16px;
 }
 .btn-container {
   margin: auto 20px ; 
