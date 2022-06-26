@@ -38,7 +38,7 @@ function Home() {
             </h1>
         </div>
         <div className="w-full custom h-full flex lg:h-96 px-4 z-10 items-start md:items-start md:px-6 xl:px-20 ">
-          <button className="mt-6 w-full md:w-auto  lg:mt-8 py-2 md:py-3 px-10 flex justify-center duration-700 hover:-translate-y-1 ease-in-out items-center relative rounded-md text-lg font-medium text-white">
+          <button className="mt-6 w-full md:w-auto lg:mt-8 py-2 md:py-3 px-10 flex justify-center duration-700 hover:-translate-y-1 ease-in-out items-center relative rounded-md text-lg font-medium text-white">
             <p className="relative z-10">Explore Now</p>
             <img className="absolute hidden md:block w-full h-full z-0" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_8_btn.png" alt="gradient" />
             <img className="md:hidden w-full h-full z-0 absolute" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_8-btn_mobile.png" alt="gradient" />
