@@ -257,7 +257,7 @@ function SignUp1(props) {
                   type="text"
                   placeholder="Enter postal code"
                   defaultValue= {props.user.zipCode}
-                  className="leading-none text-gray-600 focus:outline-none text-left"
+                  className="leading-none text-gray-600 focus:outline-none text-left w-full"
                   onChange={handleChange}
                 />
               </div>
@@ -272,7 +272,7 @@ function SignUp1(props) {
                   name="country"
                   placeholder="Country"
                   defaultValue= {props.user.country}
-                  className="leading-none text-gray-600 focus:outline-none"
+                  className="leading-none text-gray-600 focus:outline-none w-full"
                   onChange={handleChange}
                 />
               </div>

@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import SignUp1 from './SignUp1';
 import SignUp2 from './SignUp2';
 import SignUp3 from './SignUp3';
+import RegistrationSuccess from './RegistrationSuccess';
 
 
 
 function SignUp() {
-  const navigate = useNavigate();
+
+  const [RegistartionSucces, setRegistrationSuccess] = useState(false);
 
   const [user, setUser] = useState({
     firstName: "", 
@@ -56,11 +57,10 @@ function SignUp() {
       },
       body: JSON.stringify(user)
     })
-    const data = await response.text();
 
     if (response.ok) {
-      console.log("Registration successful!!!")
-      navigate('/login');
+      console.log("Registration successful");
+      setRegistrationSuccess(true);
     } else {
       console.log("Registration failed!!!");
     }
@@ -73,13 +73,16 @@ function SignUp() {
   
   return(
     <>
-      {activeStep === 1 &&
+      {RegistartionSucces &&
+        <RegistrationSuccess/>
+      }
+      {activeStep === 1 && !RegistartionSucces &&
         <SignUp1 user={user} setUser={(data) => setUser({...user, ...data})} nextStep={nextStep} prevStep={prevStep} />
       }
-      {activeStep === 2 &&
+      {activeStep === 2 && !RegistartionSucces &&
         <SignUp2 user={user} setPlayer={handlePlayerChange} nextStep={nextStep} prevStep={prevStep}/>
       }
-      {activeStep === 3 &&
+      {activeStep === 3 && !RegistartionSucces &&
         <SignUp3 user={user} setGDPR={(data) => setUser({...user, ...data})} nextStep={nextStep} prevStep={prevStep} submit={submitUserData}/>
       }
     </>

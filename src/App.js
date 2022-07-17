@@ -8,8 +8,7 @@ import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import UserProfile from './views/UserProfile/UserPage';
 import SignUp from './views/SignUp/SignUp';
-import SignUp2 from './views/SignUp/SignUp2';
-import SignUp3 from './views/SignUp/SignUp3';
+import RegistrationSuccess from './views/SignUp/RegistrationSuccess';
 import PlayerManagement from './views/PlayerManagement/PlayerManagement';
 import PlayerProfile from './views/PlayerProfile/PlayerProfile';
 import UserManagement from './views/UserManagement/UserManagement';
@@ -48,14 +47,6 @@ function App() {
                 path='/signup' 
                 element={<SignUp />} 
               />
-            {/* <Route 
-                path='/signup_2' 
-                element={<SignUp2 />} 
-              />
-            <Route 
-              path='/signup_3' 
-              element={<SignUp3 />} 
-            /> */}
           </Routes>
         </>
       }
