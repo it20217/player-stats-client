@@ -1,17 +1,19 @@
-import { useState } from 'react'
+
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
-function SignUp2(props) {
+function SignUp1(props) {
 
-  const [playerData, setPlayerData] = useState(props.user.players);
+  const [userData, setUserData] = useState(props.user);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPlayerData({
-      ...playerData,
-      [name]: value
-    });
+    setUserData(({
+        ...userData,
+        [name]: value
+    }));
   };
+
 
   return(
 
@@ -21,11 +23,11 @@ function SignUp2(props) {
         <div className="lg:max-w-[1124px] md:max-w-[696px] max-w-[343px] mx-auto bg-white px-6 py-4 rounded shadow">
           <div>
             <p className="text-xl font-semibold leading-tight text-gray-800 text-center">
-              Add New Player
+              Create New Account
             </p>
             <div className="flex items-center justify-center gap-2 pt-5">
               <div className>
-                <p className="text-sm font-semibold text-gray-500 border rounded-full w-8 h-8 flex justify-center items-center">
+                <p className="bg-slate-700 text-white text-sm font-semibold border rounded-full w-8 h-8 flex justify-center items-center">
                   1
                 </p>
               </div>
@@ -66,7 +68,7 @@ function SignUp2(props) {
                 </svg>
               </div>
               <div>
-                <p className="bg-slate-700 text-white text-sm font-semibold border rounded-full w-8 h-8 flex justify-center items-center">
+                <p className="text-sm text-gray-500 font-semibold leading-none border rounded-full w-8 h-8 flex justify-center items-center text-center">
                   2
                 </p>
               </div>
@@ -126,7 +128,7 @@ function SignUp2(props) {
           </div>
           <div className="pt-5">
             <p className="mt-16 text-xl font-medium leading-tight text-gray-800">
-              Player Information
+              Personal Information
             </p>
           </div>
           <div className="mt-8 lg:flex md:block block justify-center gap-4 pt-6">
@@ -138,10 +140,12 @@ function SignUp2(props) {
                 type="text"
                 name="firstName"
                 placeholder="Enter your first name"
-                defaultValue= {props.user.players.firstName}
+                defaultValue= {props.user.firstName}  
                 className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
                 onChange={handleChange}
+              
               />
+              
             </div>
             <div className="w-full">
               <p className="text-base leading-none text-gray-800">
@@ -151,7 +155,7 @@ function SignUp2(props) {
                 type="text"
                 name="lastName"
                 placeholder="Enter your last name"
-                defaultValue= {props.user.players.lastName}
+                defaultValue= {props.user.lastName}
                 className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
                 onChange={handleChange}
               />
@@ -160,29 +164,118 @@ function SignUp2(props) {
           <div className="lg:flex md:block block justify-center gap-4 pt-6">
             <div className="w-full">
               <p className="text-base leading-none text-gray-800">
-                Birth year
+                Email
               </p>
               <input
                 type="text"
-                name='birthYear'
-                placeholder="2014"
-                defaultValue= {props.user.players.birthYear }
+                name="email"
+                placeholder="Enter your email"
+                defaultValue= {props.user.email}
                 className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
                 onChange={handleChange}
               />
             </div>
             <div className="w-full">
               <p className="text-base leading-none text-gray-800">
-                Home club
+                Phone
               </p>
               <input
                 type="text"
-                name="homeClub"
+                name="phone"
                 placeholder="Enter your phone number"
-                defaultValue= {props.user.players.homeClub}
+                defaultValue= {props.user.phone}
                 className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
                 onChange={handleChange}
               />
+            </div>
+          </div>
+          <div className=" mt-16 lg:flex md:block block justify-center gap-4 pt-6">
+            <div className="w-full">
+              <p className="text-base leading-none text-gray-800">
+                Password
+              </p>
+              <input
+                type="text"
+                name="password"
+                placeholder="Enter your password"
+                defaultValue= {props.user.password}
+                className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="w-full">
+              <p className="text-base leading-none text-gray-800">
+                Confirm Password
+              </p>
+              <input
+                type="text"
+                name
+                placeholder="Confirm your password"
+                defaultValue= {props.user.password}
+                className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+              />
+            </div>
+          </div>
+          <div className="mt-16 pt-6">
+            <div className="lg:flex md:block block justify-between gap-4">
+              <div className="w-full">
+                <p className="text-base leading-none text-gray-800">
+                  Street Address
+                </p>
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Enter your street address"
+                  defaultValue= {props.user.address}
+                  className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="w-full">
+                <p className="text-base leading-none text-gray-800 lg:pt-0 md:pt-3 pt-3">
+                  City
+                </p>
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="Enter your city name"
+                  defaultValue= {props.user.city}
+                  className="focus:outline-none border border-gray-300 py-3 pl-3 rounded mt-4 w-full"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="lg:flex md:block block justify-between gap-5 items-center pt-5">
+            <div className="w-full">
+              <p className="text-base leading-none text-gray-800 pt-3">
+                Postal Code
+              </p>
+              <div className="border border-gray-300 focus:bg-gray-50 rounded w-full px-4 py-3 mt-4 text-left">
+                <input
+                  name="zipCode"
+                  type="text"
+                  placeholder="Enter postal code"
+                  defaultValue= {props.user.zipCode}
+                  className="leading-none text-gray-600 focus:outline-none text-left"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="w-full">
+              <p className="text-base leading-none text-gray-800 pt-3">
+                Country
+              </p>
+              <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left">
+                <input
+                  type="text"
+                  name="country"
+                  placeholder="Country"
+                  defaultValue= {props.user.country}
+                  className="leading-none text-gray-600 focus:outline-none"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </div>
           <div>
@@ -203,24 +296,23 @@ function SignUp2(props) {
                       fill="#334155"
                     />
                   </svg>
+
                   <Link 
                     to="/login"
                     className="text-slate-700 font-medium"
-                >
-                  Back to Login
-                </Link>
+                  >
+                    Back to Login
+                  </Link>
+
                 </div>
                 <div className="flex gap-5 pt-4">
-                  <button 
-                    className="text-slate-700 border border-slate-700 px-3 py-3 rounded font-medium  hover:bg-slate-50"
-                    onClick={()=> {props.setPlayer(playerData); props.prevStep()}}
-                  >
-                    Previous Step
-                  </button>
 
                   <button
-                    className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium hover:bg-slate-800"
-                    onClick={()=> {props.setPlayer(playerData); props.nextStep()}}
+                    className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+                    onClick={()=> {
+                      props.setUser(userData); 
+                      props.nextStep();
+                  }}
                   >
                     Next Step
                     <svg
@@ -239,13 +331,17 @@ function SignUp2(props) {
                       />
                     </svg>
                   </button>
+
                 </div>
               </div>
             </div>
             <div className="lg:hidden md:block block pt-4">
-              <button 
+              <button
                 className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
-                onClick={()=> {props.setPlayer(playerData); props.nextStep()}}
+                onClick={()=> {
+                  props.setUser(userData); 
+                  props.nextStep();
+                }}
               >
                 Next Step
                 <svg
@@ -264,16 +360,7 @@ function SignUp2(props) {
                   />
                 </svg>
               </button>
-              <button
-                className="text-slate-700 border border-slate-700 px-6 py-3 rounded font-medium w-full mt-4 hover:bg-slate-50"
-                onClick={()=> {
-                  console.log("!!!!!!!!!!!!", playerData)
-                  props.setPlayer(playerData); 
-                  props.prevStep();
-              }}
-              >
-                Previous Step
-              </button>
+              
               <div className="flex justify-center items-center gap-3 pt-4">
                 <svg
                   width={18}
@@ -305,4 +392,4 @@ function SignUp2(props) {
   )
 }
 
-export default SignUp2;
+export default SignUp1;

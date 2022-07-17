@@ -111,7 +111,13 @@ function Sidebar() {
           )}
           
       </div>
-      <div className={sideBar ? "border-r border-gray-200 bg-white sm:relative h-full z-20 sm:hidden px-4 transition duration-150 ease-in-out absolute w-full top-30 transform translate-x-0" : "border-r border-gray-200 bg-white sm:relative h-full z-20 sm:hidden px-4 transition duration-150 ease-in-out absolute w-full top-30 transform -translate-x-full"}>
+      <div className={
+          sideBar 
+        ? 
+          "border-r border-gray-200 bg-white sm:relative h-full z-20 sm:hidden px-4 transition duration-150 ease-in-out absolute w-full top-30 transform translate-x-0" 
+        : 
+          "border-r border-gray-200 bg-white sm:relative h-full z-20 sm:hidden px-4 transition duration-150 ease-in-out absolute w-full top-30 transform -translate-x-full"}
+      >
           <div>
               <div className="mt-3 w-full">
                   <div>

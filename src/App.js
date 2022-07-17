@@ -48,14 +48,14 @@ function App() {
                 path='/signup' 
                 element={<SignUp />} 
               />
-            <Route 
+            {/* <Route 
                 path='/signup_2' 
                 element={<SignUp2 />} 
               />
             <Route 
               path='/signup_3' 
               element={<SignUp3 />} 
-            />
+            /> */}
           </Routes>
         </>
       }

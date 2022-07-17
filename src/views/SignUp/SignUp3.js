@@ -1,9 +1,23 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
-function SignUp3() {
+/** Styling */
 
+/** Components */
+import  ToggleSwitch  from '../../components/ToggleSwitch/ToggleSwitch'
+
+function SignUp3(props) {
+
+  const [gdprData, SetGdprData] = useState(false);
+
+  useEffect(()=> {
+    props.setGDPR({["dataProtectionAccepted"]: gdprData});
+
+  }, [gdprData]);
+
+  
   return(
-
+    
     <>
     <div className="py-12 px-4">
       <div className="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] mx-auto">
@@ -118,6 +132,10 @@ function SignUp3() {
           </div>
           <div>
             <div className="mt-16 lg:block md:hidden hidden">
+              <div className="flex container w-full justify-center my-24">
+                <ToggleSwitch onToggleStatusChange={()=> SetGdprData(!gdprData)}/>
+                <p className="my-auto ml-8">General Data Protection Regulation (GDPR) consent</p>
+              </div>
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3 pt-4">
                   <svg
@@ -134,32 +152,75 @@ function SignUp3() {
                       fill="#334155"
                     />
                   </svg>
-                  <Link 
-                    to="/login"
-                    className="text-slate-700 font-medium"
-                >
-                  Back to Login
-                </Link>
+                    <Link 
+                      to="/login"
+                      className="text-slate-700 font-medium"
+                  >
+                    Back to Login
+                  </Link>
                 </div>
                 <div className="flex gap-5 pt-4">
-                  <Link 
-                    to="/signup_2"
+                  <button 
                     className="text-slate-700 border border-slate-700 px-3 py-3 rounded font-medium hover:bg-slate-50"
+                    onClick={()=> {props.setGDPR(gdprData); props.prevStep()}}
                   >
                     Previous Step
-                  </Link>
-                  
+                  </button>
+                  <button
+                    className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium hover:bg-slate-800"
+                    onClick={()=> {props.submit()}}
+                    disabled={false}
+                  >
+                    Submit
+                    <svg
+                      className="mt-1 float-right flex justify-center items-center"
+                      width={18}
+                      height={18}
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M5.87213 3.34088C5.54262 3.67038 5.54262 4.20462 5.87213 4.53412L10.338 9L5.87213 13.4659C5.54262 13.7954 5.54262 14.3296 5.87213 14.6591C6.20163 14.9886 6.73587 14.9886 7.06537 14.6591L12.1279 9.59662C12.4574 9.26712 12.4574 8.73288 12.1279 8.40338L7.06537 3.34088C6.73587 3.01137 6.20163 3.01137 5.87213 3.34088Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
             <div className="lg:hidden md:block block pt-4">
-              
-              <Link
+            <button 
+                className="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+                onClick={()=> props.submit()}
+                disabled={false}
+              >
+                Submit
+                <svg
+                  className="float-right flex justify-center items-center"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M5.87213 3.34088C5.54262 3.67038 5.54262 4.20462 5.87213 4.53412L10.338 9L5.87213 13.4659C5.54262 13.7954 5.54262 14.3296 5.87213 14.6591C6.20163 14.9886 6.73587 14.9886 7.06537 14.6591L12.1279 9.59662C12.4574 9.26712 12.4574 8.73288 12.1279 8.40338L7.06537 3.34088C6.73587 3.01137 6.20163 3.01137 5.87213 3.34088Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+              <button
                 to="/signup_2"
                 className="text-slate-700 border border-slate-700 px-6 py-3 rounded font-medium w-full mt-4 hover:bg-slate-50"
+                onClick={()=> {props.setGDPR(gdprData); props.prevStep()}}
               >
                 Previous Step
-              </Link>
+              </button>
               <div className="flex justify-center items-center gap-3 pt-4">
                 <svg
                   width={18}
