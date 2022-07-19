@@ -8,14 +8,14 @@ import  ToggleSwitch  from '../../components/ToggleSwitch/ToggleSwitch'
 
 function SignUp3(props) {
 
-  const [gdprData, SetGdprData] = useState(false);
+  const [gdprData, SetGdprData] = useState(props.user.dataProtectionAccepted);
 
   useEffect(()=> {
     props.setGDPR({["dataProtectionAccepted"]: gdprData});
 
   }, [gdprData]);
 
-  
+  console.log("gdprData", gdprData);
   return(
     
     <>
@@ -130,10 +130,10 @@ function SignUp3(props) {
           <div className="pt-5">
 
           </div>
-          <div>
+          <div>s
             <div className="mt-16 lg:block md:hidden hidden">
               <div className="flex container w-full justify-center my-24">
-                <ToggleSwitch onToggleStatusChange={()=> SetGdprData(!gdprData)}/>
+                <ToggleSwitch checked={props.user.dataProtectionAccepted} onToggleStatusChange={(data)=> SetGdprData(data)}/>
                 <p className="my-auto ml-8">General Data Protection Regulation (GDPR) consent</p>
               </div>
               <div className="flex justify-between items-center">
@@ -162,7 +162,7 @@ function SignUp3(props) {
                 <div className="flex gap-5 pt-4">
                   <button 
                     className="text-slate-700 border border-slate-700 px-3 py-3 rounded font-medium hover:bg-slate-50"
-                    onClick={()=> {props.setGDPR(gdprData); props.prevStep()}}
+                    onClick={()=> {props.prevStep()}}
                   >
                     Previous Step
                   </button>
@@ -217,7 +217,7 @@ function SignUp3(props) {
               <button
                 to="/signup_2"
                 className="text-slate-700 border border-slate-700 px-6 py-3 rounded font-medium w-full mt-4 hover:bg-slate-50"
-                onClick={()=> {props.setGDPR(gdprData); props.prevStep()}}
+                onClick={()=> {props.prevStep()}}
               >
                 Previous Step
               </button>

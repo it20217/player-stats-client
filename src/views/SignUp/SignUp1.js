@@ -1,22 +1,64 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 function SignUp1(props) {
 
   const [userData, setUserData] = useState(props.user);
+  const [cities, setCities] = useState([]);
+  const [filteredCities, setFilteredCities] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [error, setError] = useState();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData(({
         ...userData,
-        [name]: value
+        [name]: value 
     }));
   };
 
+  useEffect(()=> {
+    const getCountries = async()=> {
+      try {
+        const response = await fetch('http://localhost:4000/countries');
+        const json = await response.json();
+        setCountries(json.result);
+        
+      } catch {
+          /** Catches errors both in fetch and response.json */
+        setError({ code: 500, message: "Unable to get countries data. Please try again later." });
+      }
+    }
+    getCountries();
+
+    const getCities = async()=> {
+      try {
+        const response = await fetch('http://localhost:4000/cities');
+        const json = await response.json();
+        setCities(json.result);
+        setFilteredCities(json.result);
+      } catch {
+          /** Catches errors both in fetch and response.json */
+        setError({ code: 500, message: "Unable to get cities data. Please try again later." });
+      }
+    }
+    getCities();
+    
+  }, [])
+
+  useEffect(()=> {
+    if (countries?.length > 0 && cities?.length > 0) {
+      const reducedCities = cities.reduce((acc, curr) => {
+        return curr.countryId == userData.country ? [...acc, curr] : acc;
+      }, []);
+
+      setFilteredCities(reducedCities);
+    }
+  },[userData.country]);
+
 
   return(
-
     <>
     <div className="py-12 px-4">
       <div className="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] mx-auto">
@@ -232,50 +274,66 @@ function SignUp1(props) {
                 />
               </div>
               <div className="w-full">
-                <p className="text-base leading-none text-gray-800 lg:pt-0 md:pt-3 pt-3">
-                  City
+                <p className="text-base leading-none text-gray-800">
+                  Postal Code
                 </p>
-                <input
-                  type="text"
-                  name="city"
-                  placeholder="Enter your city name"
-                  defaultValue= {props.user.city}
-                  className="focus:outline-none border border-gray-300 py-3 pl-3 rounded mt-4 w-full"
-                  onChange={handleChange}
-                />
+                <div className="border border-gray-300 focus:bg-gray-50 rounded w-full px-4 py-3 mt-4 text-left">
+                  <input
+                    name="zipCode"
+                    type="text"
+                    placeholder="Enter postal code"
+                    defaultValue= {props.user.zipCode}
+                    className="leading-none text-gray-600 focus:outline-none text-left w-full"
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
           </div>
           <div className="lg:flex md:block block justify-between gap-5 items-center pt-5">
             <div className="w-full">
-              <p className="text-base leading-none text-gray-800 pt-3">
-                Postal Code
+              <p className="text-base leading-none text-gray-800">
+                City
               </p>
-              <div className="border border-gray-300 focus:bg-gray-50 rounded w-full px-4 py-3 mt-4 text-left">
-                <input
-                  name="zipCode"
-                  type="text"
-                  placeholder="Enter postal code"
-                  defaultValue= {props.user.zipCode}
-                  className="leading-none text-gray-600 focus:outline-none text-left w-full"
-                  onChange={handleChange}
-                />
-              </div>
+              {filteredCities?.length > 0 
+              ? <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left">
+                  <select
+                    type="text"
+                    name="city"
+                    placeholder="Select city"
+                    className="w-full outline-0 border-0"
+                    defaultValue={props.user.city}
+                    onChange={handleChange}
+                  >
+                    {filteredCities?.map((city, index)=> {
+                      return <option key={index} value={city.id}>{city.name}</option>
+                      })}
+                  </select>
+                </div>
+              : <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left"> No city available </div>
+              }
             </div>
             <div className="w-full">
-              <p className="text-base leading-none text-gray-800 pt-3">
+              <p className="text-base leading-none text-gray-800">
                 Country
               </p>
-              <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left">
-                <input
-                  type="text"
-                  name="country"
-                  placeholder="Country"
-                  defaultValue= {props.user.country}
-                  className="leading-none text-gray-600 focus:outline-none w-full"
-                  onChange={handleChange}
-                />
-              </div>
+              {countries?.length > 0
+              ? <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left">
+                  <select
+                    type="text"
+                    name="country"
+                    placeholder="Select country"
+                    className="w-full outline-0 border-0"
+                    defaultValue={props.user.country}
+                    onChange={handleChange}
+                  >
+                    {countries.map((country, index)=> {
+                      return <option key={index} value={country.id}>{country.name}</option>
+                      })}
+                  </select>
+                </div>
+              : <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left"> No country available </div>
+              }
             </div>
           </div>
           <div>

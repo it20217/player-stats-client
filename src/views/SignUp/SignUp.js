@@ -17,9 +17,9 @@ function SignUp() {
     phone: "", 
     password: "", 
     address: "", 
-    city: "", 
+    city: 0, 
     zipCode: "", 
-    country: "",
+    country: 0,
     dataProtectionAccepted: false, 
     players: {
       firstName: "",
@@ -70,7 +70,7 @@ function SignUp() {
   /** Code block begins. User data validation */
   
   /** Code block ends. */
-  
+  console.log("user", user);
   return(
     <>
       {RegistartionSucces &&

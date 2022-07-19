@@ -1,8 +1,10 @@
-
+import { useState } from 'react';
 /** Styling */
 import styles from './ToggleSwitch.module.scss'
 
-function ToggleSwitch({checked, onToggleStatusChange}) {
+function ToggleSwitch(props) {
+
+const [checked, setChecked] = useState(props.checked);
 
 
   return(
@@ -11,7 +13,7 @@ function ToggleSwitch({checked, onToggleStatusChange}) {
       type="checkbox"
       name="sportswear"
       checked={checked}
-      onChange={()=> {onToggleStatusChange(!checked)}}
+      onChange={(e)=> {e.preventDefault(); setChecked(!checked); props.onToggleStatusChange(e.target.checked)}}
     />
     <span className={styles["slider"]}></span>
     </label>
