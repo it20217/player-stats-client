@@ -3,32 +3,44 @@ import { useState, useEffect } from 'react';
 function UserManagement() {
 
   const [users, setUsers] = useState();
+  const [reload, setReload] = useState(false);
   const [error, setError] = useState();
+
   const created  = (date) => {
     const newDate = new Date(date).toISOString().slice(0, 10).replaceAll('-', '/');
     return newDate;
   }
-
   const firstLetter = (firstName) => {
     const letter = firstName.charAt(0).toUpperCase();
     return letter;
   }
 
+  
+
   useEffect(()=> {
-    const getUsers = async()=> {
+    const getUsers = ()=> {
       try {
-        const response = await fetch('http://localhost:4000/users');
-        const json = await response.json();
-        console.log('users', json.result);
-        setUsers(json.result);
-        
+        fetch('http://localhost:4000/users')
+        .then(res => res.json())
+        .then(data => setUsers(data.result))
       } catch {
           /** Catches errors both in fetch and response.json */
         setError({ code: 500, message: "Unable to get users data. Please try again later." });
       }
     }
     getUsers();
-  }, [])
+  }, [reload])
+
+  const handleUserDelete = (id) => {
+      console.log("id", id)
+      fetch('http://localhost:4000/delete/' + id, {
+        method: 'DELETE'
+      })
+      .then(res => {res.json()}) 
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+    
+  }
 
 
   return(
@@ -87,7 +99,10 @@ function UserManagement() {
                 <tbody className="w-full">
                   {users.map((user, index)=> {
                     
-                    return <tr className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-100">
+                    return <tr 
+                      className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-100"
+                      key={index}
+                    >
                       <td className="pl-4">{user.id}</td>
                       <td className="pl-11">
                         <div className="flex items-center">
@@ -110,15 +125,15 @@ function UserManagement() {
                         <p className="mr-16">{created(user.created_at)}</p>
                       </td>
                       <td>
-                        {user.roleId == 1 
+                        {user.roleId === 1 
                           ? <p className="mr-16">Admin</p>
-                          : user.roleId == 2 ?
+                          : user.roleId === 2 ?
                             <p className="mr-16">Trainer</p>
                           : <p className="mr-16">User</p>
                         }
                       </td>
                       <td>
-                        {user.active == true 
+                        {user.active === true 
                         ? <div className="w-20 h-6 flex items-center mr-16 justify-center bg-blue-50 rounded-full">
                             <p className="text-xs leading-3 text-blue-500">Active</p>
                           </div>
@@ -129,8 +144,13 @@ function UserManagement() {
                       </td>
                       <td>
                         <div className="flex items-center">
-                          <button className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none">Edit</button>
-                          <button className="bg-red-200 mr-5 hover:bg-red-300 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none">Delete</button>
+                          <button className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none">Show</button>
+                          <button 
+                            className="bg-red-200 mr-5 hover:bg-red-300 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none"
+                            onClick={()=> {handleUserDelete(user.id); setReload(!reload)}}
+                          >
+                            Delete
+                          </button>
                         </div>
                       </td>
                     </tr>
