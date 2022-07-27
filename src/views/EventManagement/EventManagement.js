@@ -441,7 +441,7 @@ function EventManagement() {
                       
                         <tr className="h-24 border-gray-300 border-b border-t hover:border-indigo-300 hover:shadow-md cursor-pointer transition duration-150 ease-in-out relative">
 
-                          <td className="py-16 pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+<td className="py-16 pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
                             {events[index]?.assignments?.length > 0 && 
                               <>
                                 <label className="text-base font-medium leading-none text-gray-800">Selected players:</label>
@@ -474,40 +474,41 @@ function EventManagement() {
                                 })}
                               </>
                             }
+                            
+                          </td>
+                          <td className="pr-8 text-right">
                             {/* Do not show select dropdown if all players are selected for an event */}
                             {dataset?.players?.length !== events[index]?.assignments?.length && 
                               <div className="flex flex-col">
-                                <label className="mb-6 text-base leading-none text-gray-800"> </label>
-                                <select
-                                  type="text"
-                                  name="venue"
-                                  placeholder="Select trainer"
-                                  className="w-48 bg-slate-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
-                                  onChange={(e)=> {setNewAssignment({...newAssignment, event_id: events[index].id, player_id: parseInt(e.target.value), user_id: events[index].user_id})}}
-                                >
-                                  <option key={999} value={" "}>{" "}</option>
-                                  {dataset?.players?.map((player, player_index)=> {
-                                    /** Show unselected for an event players */
-                                    if(events[index]?.assignments?.filter(assignment => assignment.player_id === player.id)?.length === 0) {
-                                      return <option key={player_index} value={player.id}>{player.id}. {player.firstName} {player.lastName}</option>
-                                    }
-                                  })}
-                                </select>
-                                
+                                <label className="mb-8 text-base leading-none text-gray-800"> </label>
+                                <div className="flex">
+                                  <select
+                                    type="text"
+                                    name="venue"
+                                    placeholder="Select trainer"
+                                    className="w-48 bg-slate-100 text-sm font-medium leading-none text-gray-800 py-2 border rounded border-gray-200"
+                                    onChange={(e)=> {setNewAssignment({...newAssignment, event_id: events[index].id, player_id: parseInt(e.target.value), user_id: events[index].user_id})}}
+                                  >
+                                    <option key={999} value={" "}>{" "}</option>
+                                    {dataset?.players?.map((player, player_index)=> {
+                                      /** Show unselected for an event players */
+                                      if(events[index]?.assignments?.filter(assignment => assignment.player_id === player.id)?.length === 0) {
+                                        return <option key={player_index} value={player.id}>{player.id}. {player.firstName} {player.lastName}</option>
+                                      }
+                                    })}
+                                  </select>
+                                  <button 
+                                  className="ml-6 border border-transparent focus:outline-none px-5 py-2 text-sm focus:shadow-outline-gray border border-transparent bg-slate-700 transition focus:outline-none focus:border-gray-800 focus:shadow-outline-gray duration-150 ease-in-out hover:bg-slate-600 rounded text-white whitespace-nowrap"
+                                  onClick={()=> {
+                                    submitNewAssignment();
+                                    setReload(!reload);
+                                  }}
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
                               </div>
-                            }
-                          </td>
-                          <td className="pr-8 text-right">
-                            {dataset?.players.length !== events[index]?.assignments?.length && 
-                              <button 
-                                className="mb-6 border border-transparent focus:outline-none px-5 py-3 text-sm focus:shadow-outline-gray border border-transparent bg-slate-700 transition focus:outline-none focus:border-gray-800 focus:shadow-outline-gray duration-150 ease-in-out hover:bg-slate-600 rounded text-white whitespace-nowrap"
-                                onClick={()=> {
-                                  submitNewAssignment();
-                                  setReload(!reload);
-                                }}
-                              >
-                                Submit
-                              </button>
+
                             }
                           </td>
                           <div 
