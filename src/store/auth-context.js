@@ -31,7 +31,8 @@ export const AuthContextProvider = (props) => {
         email: profile.email,
         exp: profile.exp,
         firstName: profile.firstName,
-        lastName: profile.lastName
+        lastName: profile.lastName,
+        userId: profile.id
       });
       localStorage.setItem('player-stats', token);
     } catch {

@@ -1,26 +1,59 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './PlayerProfile.module.scss'
 
-function PlayerProfile() {
 
+function PlayerProfile() {
+  const { id } = useParams();
+  const [player, setPlayer] = useState();
+  const [error, setError] = useState();
+
+  const firstLetter = (name) => {
+    const letter = name.charAt(0).toUpperCase();
+    return letter;
+  }
+
+  console.log("!!!!!", id)
+
+  useEffect(()=> {
+    const getPlayer = async()=> {
+      try {
+        fetch(`http://localhost:4000/player/${id}`)
+        .then(res => res.json())
+        .then(json => {
+          console.log('player', json);
+          setPlayer(json.result);
+        })    
+      } catch {
+          /** Catches errors both in fetch and response.json */
+        setError({ code: 500, message: "Unable to get users data. Please try again later." });
+      }
+    }
+    getPlayer();
+  }, [])
+
+  console.log("player", player);
   return(
     <div className="w-full">
-      <div className="h-full border-dashed border-2 bg-white pt-6 mx-auto">
+      <div className="h-full bg-white pt-6 mx-auto">
         <div className="flex flex-wrap">
           {/* ---Left Section--- */}
           <div className="md:w-2/5 w-full  pb-6 md:pb-0 md:pr-6">
             {/* Remove class [ h-24 ] when adding a card block */}
             {/* Remove class [ border-gray-300  dark:border-gray-700 border-dashed border-2 ] to remove dotted border */}
-            <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2" >
+            <div className="rounded border-gray-300  dark:border-gray-700" >
               {/* ---Avatar image--- */}
               <div className="flex justify-center items-center w-full h-64 rounded-t sm:rounded-l sm:rounded-t-none shadow bg-white dark:bg-gray-800">
                 <div className="h-40 w-40 mr-4 mb-4 lg:mb-0 bg-gray-100 dark:bg-gray-800 shadow-md flex justify-center items-center">
-                  <p className="text-gray-600 dark:text-gray-400 font-bold text-4xl">LT</p>
+                  <p className="text-gray-600 dark:text-gray-400 font-bold text-4xl">
+                    {player?.firstName?.charAt(0).toUpperCase()} {player?.lastName?.charAt(0).toUpperCase()}
+                  </p>
                 </div>
               </div>
               {/* ---Name--- */}
               <div className="flex justify-center items-center w-full h-12 rounded-t sm:rounded-l sm:rounded-t-none shadow bg-white dark:bg-gray-800">
                 <div className="h-40 w-40 mr-4 mb-4 lg:mb-0 flex justify-center items-center">
-                  <p className=" text-xl w-40 font-medium whitespace-nowrap ">Leon Tokarev</p>
+                  <p className=" text-xl w-40 font-medium whitespace-nowrap ">{player?.firstName} {player?.lastName}</p>
                 </div>
               </div>
               {/* ---Player team details--- */}
@@ -31,7 +64,7 @@ function PlayerProfile() {
                     <div className="flex w-full">
                       <p className="w-1/4 uppercase font-bold text-xs mx-8 text-right whitespace-nowrap">Team:</p>
                       <div className="flex w-3/4 items-center justify-center">
-                        <p className="uppercase text-xs mx-8 text-left">Under 11's</p>
+                        <p className="uppercase text-xs mx-8 text-left whitespace-nowrap">{player?.homeClub}</p>
                       </div>
                     </div>
                   </div>
@@ -67,7 +100,9 @@ function PlayerProfile() {
                     <div className="flex w-full">
                       <p className="w-1/4 uppercase font-bold text-xs mx-8 text-right whitespace-nowrap">Birth year:</p>
                       <div className="flex w-3/4 items-center justify-center">
-                        <p className="uppercase text-xs mx-8 text-left">2012</p>
+                        <p className="uppercase text-xs mx-8 text-left">
+                          {player?.birthYear}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -87,7 +122,7 @@ function PlayerProfile() {
                 <div className="flex justify-center items-center w-full h-12 rounded-t sm:rounded-l sm:rounded-t-none shadow bg-white dark:bg-gray-800">
                   <div className="h-40 w-full mr-4 mb-4 lg:mb-0 flex justify-center items-center">
                     <div className="flex w-full">
-                      <p className="w-1/4 uppercase font-bold text-xs mx-8 text-right whitespace-nowrap">Birth year:</p>
+                      <p className="w-1/4 uppercase font-bold text-xs mx-8 text-right whitespace-nowrap">Weight:</p>
                       <div className="flex w-3/4 items-center justify-center">
                         <p className="uppercase text-xs mx-8 text-left">30kg</p>
                       </div>
@@ -103,7 +138,7 @@ function PlayerProfile() {
           <div className="w-3/5 w-full">
             {/* Remove class [ h-24 ] when adding a card block */}
             {/* Remove class [ border-gray-300  dark:border-gray-700 border-dashed border-2 ] to remove dotted border */}
-            <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2">
+            <div className="rounded border-gray-300  dark:border-gray-700">
               
 
               {/* ---Technical Perfomance Values--- */}

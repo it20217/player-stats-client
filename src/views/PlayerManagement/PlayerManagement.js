@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './PlayerManagement.module.scss'
 
 
 function PlayerManagement() {
   const [players, setPlayers] = useState();
   const [error, setError] = useState();
+  const [reload, setReload] = useState(false);
+  const navigate = useNavigate();
+
+
   const created  = (date) => {
     const newDate = new Date(date).toISOString().slice(0, 10).replaceAll('-', '/');
     return newDate;
   }
-
   const firstLetter = (firstName) => {
     const letter = firstName.charAt(0).toUpperCase();
     return letter;
@@ -29,12 +33,22 @@ function PlayerManagement() {
       }
     }
     getPlayers();
-  }, [])
+  }, [reload])
+
+  const handlePlayerDelete = (id) => {
+    console.log("id", id)
+    fetch('http://localhost:4000/delete/player/' + id, {
+      method: 'DELETE'
+    })
+    .then(res => {res.json()}) 
+    .then(data => console.log(data))
+    .catch(err => {setError(err); console.log(err)})
+  
+}
 
 
   return(
-    <>
-      <div className="sm:px-6 w-full">
+      <div className="sm:px-6 w-full min-h-screen">
         <div className="px-4 md:px-10 py-4 md:py-7">
           <div className="lg:flex items-center justify-between">
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Players</p>
@@ -89,7 +103,7 @@ function PlayerManagement() {
                 <tbody className="w-full">
                   {players.map((player, index)=> {
                     
-                    return <tr className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-100">
+                    return <tr key={index} className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-100">
                       <td className="pl-2">{player.id}</td>
                       <td className="pl-4">
                         <div className="flex items-center justify-center">
@@ -123,8 +137,18 @@ function PlayerManagement() {
                       </td>
                       <td>
                         <div className="flex items-end">
-                          <button className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none">Edit</button>
-                          <button className="bg-red-200 hover:bg-red-300 py-2.5 px-3 rounded text-sm leading-3 text-gray-500 focus:outline-none">Delete</button>
+                          <button 
+                            className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none"
+                            onClick={()=> navigate(`/player/${player.id}`)}
+                          >
+                              Show
+                            </button>
+                          <button 
+                            className="bg-red-200 hover:bg-red-300 py-2.5 px-3 rounded text-sm leading-3 text-gray-500 focus:outline-none"
+                            onClick={()=> {handlePlayerDelete(player.id); setReload(!reload)}}
+                          >
+                            Delete
+                          </button>
                         </div>
                       </td>
                     </tr>
@@ -135,7 +159,6 @@ function PlayerManagement() {
           </table>
         </div>
       </div>
-    </>
   )
 }
 

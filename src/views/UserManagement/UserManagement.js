@@ -10,12 +10,6 @@ function UserManagement() {
     const newDate = new Date(date).toISOString().slice(0, 10).replaceAll('-', '/');
     return newDate;
   }
-  const firstLetter = (firstName) => {
-    const letter = firstName.charAt(0).toUpperCase();
-    return letter;
-  }
-
-  
 
   useEffect(()=> {
     const getUsers = ()=> {
@@ -38,14 +32,13 @@ function UserManagement() {
       })
       .then(res => {res.json()}) 
       .then(data => console.log(data))
-      .catch(err => console.log(err))
+      .catch(err => {setError(err); console.log(err)})
     
   }
 
 
   return(
-    <>
-      <div className="sm:px-6 w-full">
+      <div className="sm:px-6 w-full min-h-screen">
         <div className="px-4 md:px-10 py-4 md:py-7">
           <div className="lg:flex items-center justify-between">
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Users</p>
@@ -111,7 +104,7 @@ function UserManagement() {
                           <div className="w-12 h-12 mb-4 lg:mb-0 bg-cover rounded-md mr-4 relative flex justify-center items-center bg-gray-100 dark:bg-gray-800 shadow-md">
                             <div className="h-2 w-2 bg-green-400 rounded-full absolute right-0 top-0 -mr-1 -mb-1 border border-white dark:border-gray-700"></div>
                             <p className="text-gray-600 dark:text-gray-400 font-bold">
-                              {firstLetter(user.firstName)}{firstLetter(user.lastName)}
+                              {user?.firstName.charAt(0).toUpperCase()}{user?.lastName.charAt(0).toUpperCase()}
                             </p>
                           </div>
                           {/* Code block ends */}
@@ -162,7 +155,6 @@ function UserManagement() {
           </table>
         </div>
       </div>
-    </>
   )
 }
 
