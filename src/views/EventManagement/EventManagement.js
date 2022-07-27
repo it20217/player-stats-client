@@ -229,7 +229,7 @@ function EventManagement() {
             {/* Header - code block ends */}
             {/* Table - code block begins */}
             <div className="w-full overflow-x-scroll xl:overflow-x-hidden">
-              <table className="min-w-full bg-white dark:bg-gray-800 rounded">
+              <table className="w-full bg-white dark:bg-gray-800 rounded">
                   <thead>
                     <tr className="w-full h-16 border-gray-300 dark:border-gray-200 border-b py-8 bg-slate-100">
                       <th className="whitespace-nowrap pl-8 text-gray-600 font-normal pr-6 text-left text-sm tracking-normal leading-4">Date</th>
@@ -248,7 +248,7 @@ function EventManagement() {
                   </thead>
                   <tbody>
                       { showNewEventForm &&
-                        <tr className="h-24 border-gray-300 border-b border-t hover:border-indigo-300 hover:shadow-md cursor-pointer transition duration-150 ease-in-out">
+                        <tr className="w-full h-24 border-gray-300 border-b border-t hover:border-indigo-300 hover:shadow-md cursor-pointer transition duration-150 ease-in-out">
 
                           <td className="py-16 pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
                             <div className="flex flex-col">
@@ -257,7 +257,7 @@ function EventManagement() {
                                 type="datetime-local" 
                                 tabIndex={0} 
                                 aria-label="Select date" 
-                                className="w-64 bg-slate-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200" 
+                                className="bg-slate-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200" 
                                 value={newEvent.date}
                                 onChange={(e)=> {setNewEvent({...newEvent, date: e.target.value})}}
                               />
@@ -439,9 +439,9 @@ function EventManagement() {
                       </tr>
                       {events[index].isOpen &&
                       
-                        <tr className="h-24 border-gray-300 border-b border-t hover:border-indigo-300 hover:shadow-md cursor-pointer transition duration-150 ease-in-out relative">
+                        <tr className="w-full h-24 border-gray-300 border-b border-t hover:border-indigo-300 hover:shadow-md cursor-pointer transition duration-150 ease-in-out relative">
 
-<td className="py-16 pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+                          <td className="py-16 pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
                             {events[index]?.assignments?.length > 0 && 
                               <>
                                 <label className="text-base font-medium leading-none text-gray-800">Selected players:</label>
@@ -486,7 +486,7 @@ function EventManagement() {
                                     type="text"
                                     name="venue"
                                     placeholder="Select trainer"
-                                    className="w-48 bg-slate-100 text-sm font-medium leading-none text-gray-800 py-2 border rounded border-gray-200"
+                                    className="bg-slate-100 text-sm font-medium leading-none text-gray-800 py-2 px-5 border rounded border-gray-200"
                                     onChange={(e)=> {setNewAssignment({...newAssignment, event_id: events[index].id, player_id: parseInt(e.target.value), user_id: events[index].user_id})}}
                                   >
                                     <option key={999} value={" "}>{" "}</option>
@@ -508,7 +508,6 @@ function EventManagement() {
                                   </button>
                                 </div>
                               </div>
-
                             }
                           </td>
                           <div 
