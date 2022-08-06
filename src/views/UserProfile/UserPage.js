@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import AuthContext from '../../store/auth-context';
 import { useNavigate } from 'react-router-dom';
 
 function UserPage() {
-  let navigate = useNavigate();
+  
+  const AuthCtx = useContext(AuthContext);
+  const profile = AuthCtx.profile;    
+   let navigate = useNavigate();
   const [sideBar, setsideBar] = useState();
   const [show, setShow] = useState(false);
-  const [profile, setProfile] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <div className="hidden lg:flex w-full pr-6">
@@ -40,9 +44,12 @@ function UserPage() {
                       <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
                   </svg>
               </div>
-              <div className="flex items-center relative cursor-pointer" onClick={() => setProfile(!profile)}>
+              <div 
+                className="flex items-center relative cursor-pointer" 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
                   <div className="rounded-full">
-                      {profile ? (
+                      {isDropdownOpen ? (
                           <ul className="p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16 ">
                               <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
                                   <div className="flex items-center">
@@ -55,13 +62,13 @@ function UserPage() {
                                   </div>
                               </li>
                               <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
-                                  <div className="flex items-center">
+                                  <div className="flex items-center" onClick={() => AuthCtx.logout()}>
                                       <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-logout" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                           <path stroke="none" d="M0 0h24v24H0z" />
                                           <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                                           <path d="M7 12h14l-3 -3m0 6l3 -3" />
                                       </svg>
-                                      <span className="text-sm ml-2">Sign out</span>
+                                      <span className="text-sm ml-2">Log out</span>
                                   </div>
                               </li>
                           </ul>
@@ -73,7 +80,7 @@ function UserPage() {
                           <div className="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto" />
                       </div>
                   </div>
-                  <p className="text-gray-800 text-sm mx-3">Jane Doe</p>
+                  <p className="text-gray-800 text-sm mx-3">{`${profile.firstName} ${profile.lastName}`}</p>
                   <div className="cursor-pointer text-gray-600">
                       <svg aria-haspopup="true" xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                           <path stroke="none" d="M0 0h24v24H0z" />

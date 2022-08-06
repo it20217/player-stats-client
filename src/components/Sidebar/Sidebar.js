@@ -40,7 +40,7 @@ function Sidebar() {
               User management
             </div>
           </div>
-          {/* Player management menu button */}
+          {/* Player management */}
           <div 
             className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
             onClick={()=> navigate('/playermanagement')}
@@ -50,6 +50,18 @@ function Sidebar() {
             </div>
             <div className="whitespace-nowrap text-sm leading-none text-slate-700 group-hover:text-slate-700">
               Player management
+            </div>
+          </div>
+          {/* Player evaluation */}
+          <div 
+            className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
+            onClick={()=> navigate('/playerevaluation')}
+          >
+            <div className="text-2xl ml-4 mr-3 text-gray-400 group-hover:text-slate-700">
+              <IoFootballOutline/>
+            </div>
+            <div className="whitespace-nowrap text-sm leading-none text-slate-700 group-hover:text-slate-700">
+              Player evaluation form
             </div>
           </div>
           {/* Event management menu button */}

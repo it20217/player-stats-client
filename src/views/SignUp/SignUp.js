@@ -4,10 +4,9 @@ import SignUp2 from './SignUp2';
 import SignUp3 from './SignUp3';
 import RegistrationSuccess from './RegistrationSuccess';
 
-
-
 function SignUp() {
 
+  const { REACT_APP_BASE_URL } = process.env;
   const [RegistartionSucces, setRegistrationSuccess] = useState(false);
 
   const [user, setUser] = useState({
@@ -48,7 +47,7 @@ function SignUp() {
 
   /** Code block begins. User data submit to database */
   async function submitUserData() {
-    const response = await fetch("http://localhost:4000/signup", {
+    const response = await fetch(`{${REACT_APP_BASE_URL}}/signup`, {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
@@ -67,10 +66,6 @@ function SignUp() {
   }
   /** Code block ends. */
 
-  /** Code block begins. User data validation */
-  
-  /** Code block ends. */
-  console.log("user", user);
   return(
     <>
       {RegistartionSucces &&

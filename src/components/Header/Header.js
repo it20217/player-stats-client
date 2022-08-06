@@ -11,8 +11,6 @@ function Header() {
   const AuthCtx = useContext(AuthContext);
   const isLoggedIn = AuthCtx.isLoggedIn;
 
-  console.log('Header isLoggedIn',isLoggedIn)
-
   let navigate = useNavigate();
   return(
     <div className={styles["Header"]}>

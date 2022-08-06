@@ -8,14 +8,38 @@ const AuthContext = React.createContext({
   logout: () => {}
 });
 
+// Check if token is expired 
+const isTokenValid = (initialToken) => {
+  let token = null;
+  try {
+    token = jwtDecode(initialToken);
+  } catch {
+    return false;
+  }
+  const now = Math.floor(new Date().getTime()/1000);
+  return now < token.exp;
+}
+
 export const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem('player-stats');
-  const [profile, setProfile] = useState(initialToken ? {
-    email: initialToken.email,
-    exp: initialToken.exp,
-    firstName: initialToken.firstName,
-    lastName: initialToken.lastName
-  } : null);
+  let initialProfile =  null;
+  // Extract profile from jwt token if there is a token in local storage and it is not expired 
+  if (initialToken) {
+    // Check if token is expired 
+    if (isTokenValid(initialToken)) {
+      const token = jwtDecode(initialToken);
+      initialProfile = {
+        email: token.email,
+        exp: token.exp,
+        firstName: token.firstName,
+        lastName: token.lastName,
+        userId: token.id
+      }
+    } else {
+
+    }
+  }
+  const [profile, setProfile] = useState(initialProfile);
 
   const isUserLoggedIn = !!profile;
 
@@ -36,7 +60,6 @@ export const AuthContextProvider = (props) => {
       });
       localStorage.setItem('player-stats', token);
     } catch {
-      console.log('!!!! wrong token');
       contextValue.logout();
       localStorage.clear();
     }

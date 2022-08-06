@@ -1,9 +1,9 @@
 import { useState } from "react";
 import ReactSlider from "react-slider";
 
-const Slider = () => {
+const Slider = ({callback}) => {
   const [currentValue, setCurrentValue] = useState(0);
-
+  
   return (
     <ReactSlider
       className="customSlider"
@@ -15,7 +15,10 @@ const Slider = () => {
       max={100}
       defaultValue={0}
       value={currentValue}
-      onChange={(value) => setCurrentValue(value)}
+      onChange={(value) => {
+        setCurrentValue(value);
+        callback(value);
+      }}
       renderMark={(props) => {
          if (props.key < currentValue) {
            props.className = "customSlider-mark customSlider-mark-before";

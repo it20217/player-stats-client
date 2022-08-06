@@ -15,7 +15,6 @@ function SignUp3(props) {
 
   }, [gdprData]);
 
-  console.log("gdprData", gdprData);
   return(
     
     <>

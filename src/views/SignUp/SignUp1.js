@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 function SignUp1(props) {
 
+  const { REACT_APP_BASE_URL } = process.env;
   const [userData, setUserData] = useState(props.user);
   const [cities, setCities] = useState([]);
   const [filteredCities, setFilteredCities] = useState([]);
@@ -21,7 +22,7 @@ function SignUp1(props) {
   useEffect(()=> {
     const getCountries = async()=> {
       try {
-        const response = await fetch('http://localhost:4000/countries');
+        const response = await fetch(`${REACT_APP_BASE_URL}/countries`);
         const json = await response.json();
         setCountries(json.result);
         
@@ -34,7 +35,7 @@ function SignUp1(props) {
 
     const getCities = async()=> {
       try {
-        const response = await fetch('http://localhost:4000/cities');
+        const response = await fetch(`${REACT_APP_BASE_URL}/cities`);
         const json = await response.json();
         setCities(json.result);
         setFilteredCities(json.result);
@@ -45,7 +46,7 @@ function SignUp1(props) {
     }
     getCities();
     
-  }, [])
+  }, [REACT_APP_BASE_URL])
 
   useEffect(()=> {
     if (countries?.length > 0 && cities?.length > 0) {

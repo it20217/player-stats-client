@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../store/auth-context';
 
 function Login() {
 
   const AuthCtx = useContext(AuthContext);
+  const { REACT_APP_BASE_URL } = process.env;
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ function Login() {
   const [loginStatus, setLoginStatus] = useState("");
 
   async function loginUser() {
-    const response = await fetch("http://localhost:4000/login", {
+    const response = await fetch(`${REACT_APP_BASE_URL}/login`, {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
@@ -25,7 +26,7 @@ function Login() {
 
     if (response.ok) {
       AuthCtx.login(JSON.parse(data).result);
-      navigate('/user');
+      navigate('/');
     } else {
       AuthCtx.logout();
       setLoginStatus("error");

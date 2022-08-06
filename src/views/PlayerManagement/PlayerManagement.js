@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './PlayerManagement.module.scss'
+import styles from './PlayerManagement.module.scss';
+import { noData } from "../../constants";
 
 
 function PlayerManagement() {
+
+  const { REACT_APP_BASE_URL } = process.env;
   const [players, setPlayers] = useState();
   const [error, setError] = useState();
   const [reload, setReload] = useState(false);
@@ -22,9 +25,8 @@ function PlayerManagement() {
   useEffect(()=> {
     const getPlayers = async()=> {
       try {
-        const response = await fetch('http://localhost:4000/players');
+        const response = await fetch(`${REACT_APP_BASE_URL}/players`);
         const json = await response.json();
-        console.log('players', json.result);
         setPlayers(json.result);
         
       } catch {
@@ -36,13 +38,12 @@ function PlayerManagement() {
   }, [reload])
 
   const handlePlayerDelete = (id) => {
-    console.log("id", id)
-    fetch('http://localhost:4000/delete/player/' + id, {
+    fetch(`${REACT_APP_BASE_URL}/delete/player/` + id, {
       method: 'DELETE'
     })
     .then(res => {res.json()}) 
     .then(data => console.log(data))
-    .catch(err => {setError(err); console.log(err)})
+    .catch(err => setError(err))
   
 }
 
@@ -85,6 +86,8 @@ function PlayerManagement() {
           </div>
         </div>
         <div className="bg-white px-4 md:px-8 xl:px-10 overflow-x-auto">
+        {players?.length > 0 
+          ? 
           <table className="w-full whitespace-nowrap bg-slate-100">
             <thead>
               <tr className="h-20 w-full text-sm leading-none text-gray-600">
@@ -98,65 +101,63 @@ function PlayerManagement() {
                 <th className="font-normal text-center w-32 pl-4">Actions</th>
               </tr>
             </thead>
-            {players?.length > 0 
-                ? 
-                <tbody className="w-full">
-                  {players.map((player, index)=> {
-                    
-                    return <tr key={index} className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-100">
-                      <td className="pl-2">{player.id}</td>
-                      <td className="pl-4">
-                        <div className="flex items-center justify-center">
-                          {/* <img className="shadow-md rounded-full w-10 h-10 mr-3" src="https://cdn.tuk.dev/assets/templates/olympus/invoice.png" /> */}
-                          {/* Code block starts */}
-                          <div className="w-12 h-12 mb-4 lg:mb-0 bg-cover rounded-md relative flex justify-center items-center bg-gray-100 dark:bg-gray-800 shadow-md">
-                            <div className="h-2 w-2 bg-green-400 rounded-full absolute right-0 top-0 -mr-1 -mb-1 border border-white dark:border-gray-700"></div>
-                              <p className="text-gray-600 dark:text-gray-400 font-bold">
-                                {firstLetter(player.firstName)}{firstLetter(player.lastName)}
-                              </p>
-                          </div>
-                          {/* Code block ends */}
-                        </div>
-                      </td>
-                      <td className="text-left">
-                          {player.firstName} {player.lastName}
-                      </td>
-                      <td className="text-center">
-                        <p>
-                          {player.birthYear}
-                        </p>
-                      </td>
-                      <td>
-                        <p>{created(player.created_at)}</p>
-                      </td>
-                      <td>
-                        {"Midfielder"}
-                      </td>
-                      <td>
-                        {"Team"}
-                      </td>
-                      <td>
-                        <div className="flex items-end">
-                          <button 
-                            className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none"
-                            onClick={()=> navigate(`/player/${player.id}`)}
-                          >
-                              Show
-                            </button>
-                          <button 
-                            className="bg-red-200 hover:bg-red-300 py-2.5 px-3 rounded text-sm leading-3 text-gray-500 focus:outline-none"
-                            onClick={()=> {handlePlayerDelete(player.id); setReload(!reload)}}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  })}
-                </tbody>
-              : <div> No data </div>
-            } 
+            <tbody className="w-full">
+              {players.map((player, index)=> {
+                
+                return <tr key={index} className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-100">
+                  <td className="pl-2">{player.id}</td>
+                  <td className="pl-4">
+                    <div className="flex items-center justify-center">
+                      {/* <img className="shadow-md rounded-full w-10 h-10 mr-3" src="https://cdn.tuk.dev/assets/templates/olympus/invoice.png" /> */}
+                      {/* Code block starts */}
+                      <div className="w-12 h-12 mb-4 lg:mb-0 bg-cover rounded-md relative flex justify-center items-center bg-gray-100 dark:bg-gray-800 shadow-md">
+                        <div className="h-2 w-2 bg-green-400 rounded-full absolute right-0 top-0 -mr-1 -mb-1 border border-white dark:border-gray-700"></div>
+                          <p className="text-gray-600 dark:text-gray-400 font-bold">
+                            {firstLetter(player.firstName)}{firstLetter(player.lastName)}
+                          </p>
+                      </div>
+                      {/* Code block ends */}
+                    </div>
+                  </td>
+                  <td className="text-left">
+                      {player.firstName} {player.lastName}
+                  </td>
+                  <td className="text-center">
+                    <p>
+                      {player.birthYear}
+                    </p>
+                  </td>
+                  <td>
+                    <p>{created(player.created_at)}</p>
+                  </td>
+                  <td>
+                    {"Midfielder"}
+                  </td>
+                  <td>
+                    {"Team"}
+                  </td>
+                  <td>
+                    <div className="flex items-end">
+                      <button 
+                        className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none"
+                        onClick={()=> navigate(`/player/${player.id}`)}
+                      >
+                        Show
+                      </button>
+                      <button 
+                        className="bg-red-200 hover:bg-red-300 py-2.5 px-3 rounded text-sm leading-3 text-gray-500 focus:outline-none"
+                        onClick={()=> {handlePlayerDelete(player.id); setReload(!reload)}}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              })}
+            </tbody>
           </table>
+          : <div>{noData}</div>
+        } 
         </div>
       </div>
   )

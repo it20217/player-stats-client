@@ -267,7 +267,6 @@ function SignUp2(props) {
               <button
                 className="text-slate-700 border border-slate-700 px-6 py-3 rounded font-medium w-full mt-4 hover:bg-slate-50"
                 onClick={()=> {
-                  console.log("!!!!!!!!!!!!", playerData)
                   props.setPlayer(playerData); 
                   props.prevStep();
               }}
