@@ -4,8 +4,10 @@ import jwtDecode from 'jwt-decode';
 const AuthContext = React.createContext({
   isLoggedIn: false,
   profile: null,
+  notification: null,
   login: () => {},
-  logout: () => {}
+  logout: () => {},
+  notify: () => {}
 });
 
 // Check if token is expired 
@@ -36,10 +38,13 @@ export const AuthContextProvider = (props) => {
         userId: token.id
       }
     } else {
-
+      contextValue.logout();
     }
   }
   const [profile, setProfile] = useState(initialProfile);
+  const [notification, setNotification] = useState(null);
+
+  //double exclamation sign converts a falsy value to boolean
 
   const isUserLoggedIn = !!profile;
 
@@ -65,11 +70,17 @@ export const AuthContextProvider = (props) => {
     }
   };
 
+  const notificationHandler = (notification) => {
+    setNotification(notification)
+  }
+
   const contextValue = {
     isLoggedIn: isUserLoggedIn,
     profile: profile,
+    notification: notification,
     login: loginHandler,
-    logout: logoutHandler
+    logout: logoutHandler,
+    notify: notificationHandler
   }
 
   return <AuthContext.Provider value={contextValue}>{props.children}</AuthContext.Provider>;

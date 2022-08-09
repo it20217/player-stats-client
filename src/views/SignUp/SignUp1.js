@@ -238,7 +238,7 @@ function SignUp1(props) {
                 Password
               </p>
               <input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Enter your password"
                 defaultValue= {props.user.password}
@@ -251,7 +251,7 @@ function SignUp1(props) {
                 Confirm Password
               </p>
               <input
-                type="text"
+                type="password"
                 name
                 placeholder="Confirm your password"
                 defaultValue= {props.user.password}
@@ -294,28 +294,6 @@ function SignUp1(props) {
           <div className="lg:flex md:block block justify-between gap-5 items-center pt-5">
             <div className="w-full">
               <p className="text-base leading-none text-gray-800">
-                City
-              </p>
-              {filteredCities?.length > 0 
-              ? <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left">
-                  <select
-                    type="text"
-                    name="city"
-                    placeholder="Select city"
-                    className="w-full outline-0 border-0"
-                    defaultValue={props.user.city}
-                    onChange={handleChange}
-                  >
-                    {filteredCities?.map((city, index)=> {
-                      return <option key={index} value={city.id}>{city.name}</option>
-                      })}
-                  </select>
-                </div>
-              : <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left"> No city available </div>
-              }
-            </div>
-            <div className="w-full">
-              <p className="text-base leading-none text-gray-800">
                 Country
               </p>
               {countries?.length > 0
@@ -328,12 +306,36 @@ function SignUp1(props) {
                     defaultValue={props.user.country}
                     onChange={handleChange}
                   >
+                    <option key={999} value={""}>{""}</option>
                     {countries.map((country, index)=> {
                       return <option key={index} value={country.id}>{country.name}</option>
                       })}
                   </select>
                 </div>
               : <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left"> No country available </div>
+              }
+            </div>
+            <div className="w-full">
+              <p className="text-base leading-none text-gray-800">
+                City
+              </p>
+              {filteredCities?.length > 0 
+              ? <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left">
+                  <select
+                    type="text"
+                    name="city"
+                    placeholder="Select city"
+                    className="w-full outline-0 border-0"
+                    defaultValue={props.user.city}
+                    onChange={handleChange}
+                  >
+                    <option key={999} value={""}>{""}</option>
+                    {filteredCities?.map((city, index)=> {
+                      return <option key={index} value={city.id}>{city.name}</option>
+                      })}
+                  </select>
+                </div>
+              : <div className="border border-gray-300 rounded px-4 py-3 mt-4 text-left"> No city available </div>
               }
             </div>
           </div>

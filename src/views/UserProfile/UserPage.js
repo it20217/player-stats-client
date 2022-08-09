@@ -12,7 +12,7 @@ function UserPage() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <div className="hidden lg:flex w-full pr-6">
+    <div className="hidden lg:flex w-full pr-6 mt-8">
       <div className="w-1/2 h-full hidden lg:flex items-center pl-6 pr-24">
           <div className="relative w-full">
               <div className="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4">
@@ -76,8 +76,10 @@ function UserPage() {
                           ""
                       )}
                       <div className="relative">
-                          <img className="rounded-full h-10 w-10 object-cover" src="https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png" alt="avatar" />
-                          <div className="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto" />
+                        <p className="text-gray-600 dark:text-gray-400 font-bold">
+                          {profile?.firstName.charAt(0).toUpperCase()}{profile?.lastName.charAt(0).toUpperCase()}
+                        </p>
+                          {/* <div className="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-6 mb-0 mr-0 m-auto" /> */}
                       </div>
                   </div>
                   <p className="text-gray-800 text-sm mx-3">{`${profile.firstName} ${profile.lastName}`}</p>

@@ -1,4 +1,4 @@
-import { React, useContext } from 'react';
+import { React, useContext, useState, useEffect } from 'react';
 import AuthContext from './store/auth-context';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.module.scss';
@@ -6,8 +6,8 @@ import Header from './components/Header/Header';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import UserProfile from './views/UserProfile/UserPage';
+import Notification from './components/Notification/Notification';
 import SignUp from './views/SignUp/SignUp';
-import RegistrationSuccess from './views/SignUp/RegistrationSuccess';
 import PlayerManagement from './views/PlayerManagement/PlayerManagement';
 import PlayerProfile from './views/PlayerProfile/PlayerProfile';
 import PlayerEvaluation from './views/PlayerEvaluation/PlayerEvaluation';
@@ -23,8 +23,25 @@ function App() {
   const location = useLocation();
   const path = location.pathname;
 
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [notification, setNotification] = useState({
+      type: '',
+      message: ''
+  });
+
+  useEffect(() => {
+    setNotification({
+      type: AuthCtx.notification?.type || 'info',
+      message: AuthCtx.notification?.message || '',
+      delay: AuthCtx.notification?.delay || 5000
+    });
+    if (AuthCtx.notification) {
+      setNotificationOpen(true);
+    }
+  }, [AuthCtx.notification]);
+
   return (
-    <div className="App">
+    <div className='App'>
       <Header/>
       <div className='userContainer flex flex-row w-full justify-between'>
         {isLoggedIn && path !== '/' &&<Sidebar/>}
@@ -82,7 +99,17 @@ function App() {
               </Route>
             </Routes>
           </div>
-        </div>
+      </div>
+      {notificationOpen && 
+        <Notification 
+          notification={notification} 
+          delay={notification.type === 'info' || notification.type === 'success' ? 5000 : null} 
+          close={() => {setNotificationOpen(false); setNotification({
+            type: '',
+            message: ''
+          })}} 
+        />
+      }
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AuthContext from '../../store/auth-context';
 import SignUp1 from './SignUp1';
 import SignUp2 from './SignUp2';
 import SignUp3 from './SignUp3';
@@ -8,6 +9,7 @@ function SignUp() {
 
   const { REACT_APP_BASE_URL } = process.env;
   const [RegistartionSucces, setRegistrationSuccess] = useState(false);
+  const AuthCtx = useContext(AuthContext);
 
   const [user, setUser] = useState({
     firstName: "", 
@@ -47,7 +49,7 @@ function SignUp() {
 
   /** Code block begins. User data submit to database */
   async function submitUserData() {
-    const response = await fetch(`{${REACT_APP_BASE_URL}}/signup`, {
+    const response = await fetch(`${REACT_APP_BASE_URL}/signup`, {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
@@ -58,10 +60,18 @@ function SignUp() {
     })
 
     if (response.ok) {
-      console.log("Registration successful");
+      AuthCtx.notify({
+        message: 'Registration was successfull',
+        delay: 5000,
+        type: 'success'
+      });
       setRegistrationSuccess(true);
     } else {
-      console.log("Registration failed!!!");
+      const json = await response?.json();
+      AuthCtx.notify({
+        message: json?.error[0].msg || 'Registration failed',
+        type: 'error'
+      });
     }
   }
   /** Code block ends. */

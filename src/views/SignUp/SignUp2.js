@@ -169,6 +169,7 @@ function SignUp2(props) {
                 defaultValue= {props.user.players.birthYear }
                 className="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
                 onChange={handleChange}
+                maxLength={4}
               />
             </div>
             <div className="w-full">

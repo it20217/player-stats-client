@@ -28,8 +28,13 @@ function Login() {
       AuthCtx.login(JSON.parse(data).result);
       navigate('/');
     } else {
-      AuthCtx.logout();
-      setLoginStatus("error");
+      const json = JSON.parse(data);
+      AuthCtx.notify({
+        message: json?.error[0].msg || 'Login failed',
+        type: 'error',
+        delay: 5000
+      });
+      // setLoginStatus("error");
     }
   }
 

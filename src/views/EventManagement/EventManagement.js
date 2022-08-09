@@ -1,16 +1,13 @@
 
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './EventManagement.module.scss'
 import AuthContext from '../../store/auth-context';
 import { noData } from "../../constants";
 
 
 function EventManagement() {
 
-  const AuthCtx = useContext(AuthContext);
   const { REACT_APP_BASE_URL } = process.env;
-  const userId = AuthCtx?.profile.userId;
   const navigate = useNavigate();
 
   const [events, setEvents] = useState();
@@ -56,7 +53,7 @@ function EventManagement() {
 
     if (response.ok) {
       console.log("New Event created");
-
+      setReload(!reload);
     } else {
       console.log("Fail to save a new Event!!!");
     }
@@ -465,7 +462,7 @@ function EventManagement() {
                                       </div>
                                       <button 
                                         onClick={() => {
-                                          removeAssignment(assignment.assignment_id);
+                                          removeAssignment(assignment.id);
                                           setReload(!reload);
                                         }} 
                                         className="rounded border border-transparent focus:outline-none focus:border-gray-800  focus:shadow-outline-gray mx-10" href="javascript: void(0)">
@@ -527,7 +524,7 @@ function EventManagement() {
                               newEvents[index].isOpen = false;
                               setEvents(newEvents);
                             }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" aria-label="Close" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-label="Close" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" strokeLinejoin="round">
                               <path stroke="none" d="M0 0h24v24H0z" />
                               <line x1="18" y1="6" x2="6" y2="18" />
                               <line x1="6" y1="6" x2="18" y2="18" />
