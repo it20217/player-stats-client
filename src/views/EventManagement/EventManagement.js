@@ -1,12 +1,14 @@
 
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../store/auth-context';
+import { useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 import { noData } from "../../constants";
 
 
 function EventManagement() {
 
+  const AuthCtx = useContext(AuthContext);
   const { REACT_APP_BASE_URL } = process.env;
   const navigate = useNavigate();
 
@@ -41,21 +43,36 @@ function EventManagement() {
 
   /** Code block begins. User data submit to database */
   async function submitNewEvent() {
+    
+    // Add json token to the header. It will be authentified by the server
+    const token = localStorage.hasOwnProperty('player-stats') 
+      ? localStorage.getItem('player-stats') : "";
+    const authHeader = "Bearer " + token;
+
     const response = await fetch(`${REACT_APP_BASE_URL}/POST/event`, {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: authHeader
       },
       body: JSON.stringify(newEvent)
     })
-
+    console.log(response.status)
     if (response.ok) {
-      console.log("New Event created");
       setReload(!reload);
     } else {
-      console.log("Fail to save a new Event!!!");
+      if (response.status === 401) {
+        // User should be logged out. Unauthorized request
+        AuthCtx.logout();
+      } else {
+        AuthCtx.notify({
+          message: 'Unable to create event',
+          type: 'error',
+          delay: 5000
+        });
+      }
     }
   }
   /** Code block ends. */
@@ -336,7 +353,7 @@ function EventManagement() {
                       <td className="pr-8 text-right">
                         <button 
                           className="mt-6 border border-transparent focus:outline-none px-5 py-3 text-sm whitespace-nowrap focus:shadow-outline-gray border border-transparent bg-slate-700 transition focus:outline-none focus:border-gray-800 focus:shadow-outline-gray duration-150 ease-in-out hover:bg-slate-600 rounded text-white"
-                          onClick={()=> {submitNewEvent();setReload(!reload);setShowNewEventForm(false)}}
+                          onClick={()=> {submitNewEvent();setShowNewEventForm(false)}}
                         >
                           Add Event
                         </button>

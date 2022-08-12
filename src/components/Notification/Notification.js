@@ -14,15 +14,15 @@ const Notification = ({notification, close, delay}) => {
     }
   }, [delay, close]);
 
-  return <div className={`${styles.notification} ${styles[notification.type]}`}>
+  return <div className={`${styles.notification} ${styles[notification?.type]}`}>
     <div className={styles.message}>
       <div className={styles["notification-icon"]}>
-      {notification.type === "success" && <BsCheckCircle />}
-      {notification.type === "warning" && <BsExclamationTriangleFill />}
-      {notification.type === "error" && <BsExclamationCircle />}
-      {notification.type === "info" && <BsInfoCircle />}
+      {notification?.type === "success" && <BsCheckCircle />}
+      {notification?.type === "warning" && <BsExclamationTriangleFill />}
+      {notification?.type === "error" && <BsExclamationCircle />}
+      {notification?.type === "info" && <BsInfoCircle />}
       </div> 
-      <span>{notification.message}</span>
+      <span>{notification?.message}</span>
       <div className={styles["close-icon"]} onClick={() => close()} >
         <BsX />   
       </div>

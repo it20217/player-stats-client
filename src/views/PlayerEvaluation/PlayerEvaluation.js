@@ -8,7 +8,7 @@ function PlayerEvaluation() {
   const AuthCtx = useContext(AuthContext);
   const { REACT_APP_BASE_URL } = process.env;
   const profile = AuthCtx?.profile;
-  const { eventId , assignmentId } = useParams();
+  const { eventId } = useParams();
   const navigate = useNavigate();
   const [events, setEvents] = useState();
   const [selectedEvent, setSelectedEvent] = useState(eventId);
@@ -87,11 +87,11 @@ function PlayerEvaluation() {
           <div className="w-1/2 md:flex items-center lg:ml-24 lg:mt-0 mt-4">
             <div className="md:flex-col">
                 <label className="text-sm leading-none text-gray-800" id="firstName" >First name</label>
-                <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="firstName" placeholder={profile.firstName} />
+                <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="firstName" placeholder={profile?.firstName} />
             </div>
             <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
                 <label className="text-sm leading-none text-gray-800" id="lastName">Last name</label>
-                <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={profile.lastName}/>
+                <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={profile?.lastName}/>
             </div>
           </div>
       </div>

@@ -1,0 +1,930 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp component renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="py-12 px-4"
+      >
+        <div
+          class="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] mx-auto"
+        >
+          <div
+            class="lg:max-w-[1124px] md:max-w-[696px] max-w-[343px] mx-auto bg-white px-6 py-4 rounded shadow"
+          >
+            <div>
+              <p
+                class="text-xl font-semibold leading-tight text-gray-800 text-center"
+              >
+                Create New Account
+              </p>
+              <div
+                class="flex items-center justify-center gap-2 pt-5"
+              >
+                <div>
+                  <p
+                    class="bg-slate-700 text-white text-sm font-semibold border rounded-full w-8 h-8 flex justify-center items-center"
+                  >
+                    1
+                  </p>
+                </div>
+                <div>
+                  <svg
+                    class="lg:block md:block hidden"
+                    fill="none"
+                    height="2"
+                    viewBox="0 0 186 2"
+                    width="186"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      stroke="#E5E7EB"
+                      stroke-width="2"
+                      x1="8.74228e-08"
+                      x2="186"
+                      y1="1"
+                      y2="1.00002"
+                    />
+                  </svg>
+                  <svg
+                    class="lg:hidden md:hidden block"
+                    fill="none"
+                    height="2"
+                    viewBox="0 0 82 2"
+                    width="82"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      stroke="#E5E7EB"
+                      stroke-width="2"
+                      x1="-8.74228e-08"
+                      x2="82"
+                      y1="1"
+                      y2="0.999993"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p
+                    class="text-sm text-gray-500 font-semibold leading-none border rounded-full w-8 h-8 flex justify-center items-center text-center"
+                  >
+                    2
+                  </p>
+                </div>
+                <div>
+                  <svg
+                    class="lg:block md:block hidden"
+                    fill="none"
+                    height="2"
+                    viewBox="0 0 186 2"
+                    width="186"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      stroke="#E5E7EB"
+                      stroke-width="2"
+                      x1="8.74228e-08"
+                      x2="186"
+                      y1="1"
+                      y2="1.00002"
+                    />
+                  </svg>
+                  <svg
+                    class="lg:hidden md:hidden block"
+                    fill="none"
+                    height="2"
+                    viewBox="0 0 82 2"
+                    width="82"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      stroke="#E5E7EB"
+                      stroke-width="2"
+                      x1="-8.74228e-08"
+                      x2="82"
+                      y1="1"
+                      y2="0.999993"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p
+                    class="text-sm font-semibold text-gray-500 border rounded-full w-8 h-8 flex justify-center items-center"
+                  >
+                    3
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex md:justify-center md:gap-32 justify-between items-center gap-x-3"
+            >
+              <div
+                class="text-xs text-start text-gray-600 md:ml-3 ml-1"
+              >
+                Your Profile
+              </div>
+              <div
+                class="text-xs font-medium text-center text-gray-800 md:ml-6 ml-6"
+              >
+                Add Player
+              </div>
+              <div
+                class="text-xs text-right text-gray-600"
+              >
+                Consent agreement
+              </div>
+            </div>
+            <div
+              class="pt-5"
+            >
+              <p
+                class="mt-16 text-xl font-medium leading-tight text-gray-800"
+              >
+                Personal Information
+              </p>
+            </div>
+            <div
+              class="mt-8 lg:flex md:block block justify-center gap-4 pt-6"
+            >
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  First Name
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  name="firstName"
+                  placeholder="Enter your first name"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Last Name
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  name="lastName"
+                  placeholder="Enter your last name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="lg:flex md:block block justify-center gap-4 pt-6"
+            >
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Email
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  name="email"
+                  placeholder="Enter your email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Phone
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class=" mt-16 lg:flex md:block block justify-center gap-4 pt-6"
+            >
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Password
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  name="password"
+                  placeholder="Enter your password"
+                  type="password"
+                  value=""
+                />
+              </div>
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Confirm Password
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  placeholder="Confirm your password"
+                  type="password"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="mt-16 pt-6"
+            >
+              <div
+                class="lg:flex md:block block justify-between gap-4"
+              >
+                <div
+                  class="w-full"
+                >
+                  <p
+                    class="text-base leading-none text-gray-800"
+                  >
+                    Street Address
+                  </p>
+                  <input
+                    class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                    name="address"
+                    placeholder="Enter your street address"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="w-full"
+                >
+                  <p
+                    class="text-base leading-none text-gray-800"
+                  >
+                    Postal Code
+                  </p>
+                  <div
+                    class="border border-gray-300 focus:bg-gray-50 rounded w-full px-4 py-3 mt-4 text-left"
+                  >
+                    <input
+                      class="leading-none text-gray-600 focus:outline-none text-left w-full"
+                      name="zipCode"
+                      placeholder="Enter postal code"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="lg:flex md:block block justify-between gap-5 items-center pt-5"
+            >
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Country
+                </p>
+                <div
+                  class="border border-gray-300 rounded px-4 py-3 mt-4 text-left"
+                >
+                   No country available 
+                </div>
+              </div>
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  City
+                </p>
+                <div
+                  class="border border-gray-300 rounded px-4 py-3 mt-4 text-left"
+                >
+                   No city available 
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mt-16 lg:block md:hidden hidden"
+              >
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <div
+                    class="flex items-center gap-3 pt-4"
+                  >
+                    <svg
+                      fill="none"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12.1279 3.34088C12.4574 3.67038 12.4574 4.20462 12.1279 4.53412L7.66199 9L12.1279 13.4659C12.4574 13.7954 12.4574 14.3296 12.1279 14.6591C11.7984 14.9886 11.2641 14.9886 10.9346 14.6591L5.87213 9.59662C5.54262 9.26712 5.54262 8.73288 5.87213 8.40338L10.9346 3.34088C11.2641 3.01137 11.7984 3.01137 12.1279 3.34088Z"
+                        fill="#334155"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    <a
+                      class="text-slate-700 font-medium"
+                      href="/login"
+                    >
+                      Back to Login
+                    </a>
+                  </div>
+                  <div
+                    class="flex gap-5 pt-4"
+                  >
+                    <button
+                      class="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+                    >
+                      Next Step
+                      <svg
+                        class="mt-1 float-right flex justify-center items-center"
+                        fill="none"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        width="18"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M5.87213 3.34088C5.54262 3.67038 5.54262 4.20462 5.87213 4.53412L10.338 9L5.87213 13.4659C5.54262 13.7954 5.54262 14.3296 5.87213 14.6591C6.20163 14.9886 6.73587 14.9886 7.06537 14.6591L12.1279 9.59662C12.4574 9.26712 12.4574 8.73288 12.1279 8.40338L7.06537 3.34088C6.73587 3.01137 6.20163 3.01137 5.87213 3.34088Z"
+                          fill="white"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="lg:hidden md:block block pt-4"
+              >
+                <button
+                  class="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+                >
+                  Next Step
+                  <svg
+                    class="float-right flex justify-center items-center"
+                    fill="none"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.87213 3.34088C5.54262 3.67038 5.54262 4.20462 5.87213 4.53412L10.338 9L5.87213 13.4659C5.54262 13.7954 5.54262 14.3296 5.87213 14.6591C6.20163 14.9886 6.73587 14.9886 7.06537 14.6591L12.1279 9.59662C12.4574 9.26712 12.4574 8.73288 12.1279 8.40338L7.06537 3.34088C6.73587 3.01137 6.20163 3.01137 5.87213 3.34088Z"
+                      fill="white"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="flex justify-center items-center gap-3 pt-4"
+                >
+                  <svg
+                    fill="none"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12.1279 3.34088C12.4574 3.67038 12.4574 4.20462 12.1279 4.53412L7.66199 9L12.1279 13.4659C12.4574 13.7954 12.4574 14.3296 12.1279 14.6591C11.7984 14.9886 11.2641 14.9886 10.9346 14.6591L5.87213 9.59662C5.54262 9.26712 5.54262 8.73288 5.87213 8.40338L10.9346 3.34088C11.2641 3.01137 11.7984 3.01137 12.1279 3.34088Z"
+                      fill="#334155"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <a
+                    class="text-slate-700 font-medium"
+                    href="/login"
+                  >
+                    Back to Login
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="py-12 px-4"
+    >
+      <div
+        class="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] mx-auto"
+      >
+        <div
+          class="lg:max-w-[1124px] md:max-w-[696px] max-w-[343px] mx-auto bg-white px-6 py-4 rounded shadow"
+        >
+          <div>
+            <p
+              class="text-xl font-semibold leading-tight text-gray-800 text-center"
+            >
+              Create New Account
+            </p>
+            <div
+              class="flex items-center justify-center gap-2 pt-5"
+            >
+              <div>
+                <p
+                  class="bg-slate-700 text-white text-sm font-semibold border rounded-full w-8 h-8 flex justify-center items-center"
+                >
+                  1
+                </p>
+              </div>
+              <div>
+                <svg
+                  class="lg:block md:block hidden"
+                  fill="none"
+                  height="2"
+                  viewBox="0 0 186 2"
+                  width="186"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    stroke="#E5E7EB"
+                    stroke-width="2"
+                    x1="8.74228e-08"
+                    x2="186"
+                    y1="1"
+                    y2="1.00002"
+                  />
+                </svg>
+                <svg
+                  class="lg:hidden md:hidden block"
+                  fill="none"
+                  height="2"
+                  viewBox="0 0 82 2"
+                  width="82"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    stroke="#E5E7EB"
+                    stroke-width="2"
+                    x1="-8.74228e-08"
+                    x2="82"
+                    y1="1"
+                    y2="0.999993"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p
+                  class="text-sm text-gray-500 font-semibold leading-none border rounded-full w-8 h-8 flex justify-center items-center text-center"
+                >
+                  2
+                </p>
+              </div>
+              <div>
+                <svg
+                  class="lg:block md:block hidden"
+                  fill="none"
+                  height="2"
+                  viewBox="0 0 186 2"
+                  width="186"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    stroke="#E5E7EB"
+                    stroke-width="2"
+                    x1="8.74228e-08"
+                    x2="186"
+                    y1="1"
+                    y2="1.00002"
+                  />
+                </svg>
+                <svg
+                  class="lg:hidden md:hidden block"
+                  fill="none"
+                  height="2"
+                  viewBox="0 0 82 2"
+                  width="82"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    stroke="#E5E7EB"
+                    stroke-width="2"
+                    x1="-8.74228e-08"
+                    x2="82"
+                    y1="1"
+                    y2="0.999993"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p
+                  class="text-sm font-semibold text-gray-500 border rounded-full w-8 h-8 flex justify-center items-center"
+                >
+                  3
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex md:justify-center md:gap-32 justify-between items-center gap-x-3"
+          >
+            <div
+              class="text-xs text-start text-gray-600 md:ml-3 ml-1"
+            >
+              Your Profile
+            </div>
+            <div
+              class="text-xs font-medium text-center text-gray-800 md:ml-6 ml-6"
+            >
+              Add Player
+            </div>
+            <div
+              class="text-xs text-right text-gray-600"
+            >
+              Consent agreement
+            </div>
+          </div>
+          <div
+            class="pt-5"
+          >
+            <p
+              class="mt-16 text-xl font-medium leading-tight text-gray-800"
+            >
+              Personal Information
+            </p>
+          </div>
+          <div
+            class="mt-8 lg:flex md:block block justify-center gap-4 pt-6"
+          >
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                First Name
+              </p>
+              <input
+                class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                name="firstName"
+                placeholder="Enter your first name"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                Last Name
+              </p>
+              <input
+                class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                name="lastName"
+                placeholder="Enter your last name"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="lg:flex md:block block justify-center gap-4 pt-6"
+          >
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                Email
+              </p>
+              <input
+                class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                name="email"
+                placeholder="Enter your email"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                Phone
+              </p>
+              <input
+                class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                name="phone"
+                placeholder="Enter your phone number"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class=" mt-16 lg:flex md:block block justify-center gap-4 pt-6"
+          >
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                Password
+              </p>
+              <input
+                class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                name="password"
+                placeholder="Enter your password"
+                type="password"
+                value=""
+              />
+            </div>
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                Confirm Password
+              </p>
+              <input
+                class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                placeholder="Confirm your password"
+                type="password"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="mt-16 pt-6"
+          >
+            <div
+              class="lg:flex md:block block justify-between gap-4"
+            >
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Street Address
+                </p>
+                <input
+                  class="focus:outline-none border border-gray-300 py-3 pl-3 rounded w-full mt-4"
+                  name="address"
+                  placeholder="Enter your street address"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="w-full"
+              >
+                <p
+                  class="text-base leading-none text-gray-800"
+                >
+                  Postal Code
+                </p>
+                <div
+                  class="border border-gray-300 focus:bg-gray-50 rounded w-full px-4 py-3 mt-4 text-left"
+                >
+                  <input
+                    class="leading-none text-gray-600 focus:outline-none text-left w-full"
+                    name="zipCode"
+                    placeholder="Enter postal code"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="lg:flex md:block block justify-between gap-5 items-center pt-5"
+          >
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                Country
+              </p>
+              <div
+                class="border border-gray-300 rounded px-4 py-3 mt-4 text-left"
+              >
+                 No country available 
+              </div>
+            </div>
+            <div
+              class="w-full"
+            >
+              <p
+                class="text-base leading-none text-gray-800"
+              >
+                City
+              </p>
+              <div
+                class="border border-gray-300 rounded px-4 py-3 mt-4 text-left"
+              >
+                 No city available 
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="mt-16 lg:block md:hidden hidden"
+            >
+              <div
+                class="flex justify-between items-center"
+              >
+                <div
+                  class="flex items-center gap-3 pt-4"
+                >
+                  <svg
+                    fill="none"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12.1279 3.34088C12.4574 3.67038 12.4574 4.20462 12.1279 4.53412L7.66199 9L12.1279 13.4659C12.4574 13.7954 12.4574 14.3296 12.1279 14.6591C11.7984 14.9886 11.2641 14.9886 10.9346 14.6591L5.87213 9.59662C5.54262 9.26712 5.54262 8.73288 5.87213 8.40338L10.9346 3.34088C11.2641 3.01137 11.7984 3.01137 12.1279 3.34088Z"
+                      fill="#334155"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <a
+                    class="text-slate-700 font-medium"
+                    href="/login"
+                  >
+                    Back to Login
+                  </a>
+                </div>
+                <div
+                  class="flex gap-5 pt-4"
+                >
+                  <button
+                    class="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+                  >
+                    Next Step
+                    <svg
+                      class="mt-1 float-right flex justify-center items-center"
+                      fill="none"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.87213 3.34088C5.54262 3.67038 5.54262 4.20462 5.87213 4.53412L10.338 9L5.87213 13.4659C5.54262 13.7954 5.54262 14.3296 5.87213 14.6591C6.20163 14.9886 6.73587 14.9886 7.06537 14.6591L12.1279 9.59662C12.4574 9.26712 12.4574 8.73288 12.1279 8.40338L7.06537 3.34088C6.73587 3.01137 6.20163 3.01137 5.87213 3.34088Z"
+                        fill="white"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="lg:hidden md:block block pt-4"
+            >
+              <button
+                class="text-white border border-slate-700 bg-slate-700 px-6 py-3 rounded font-medium w-full hover:bg-slate-800"
+              >
+                Next Step
+                <svg
+                  class="float-right flex justify-center items-center"
+                  fill="none"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.87213 3.34088C5.54262 3.67038 5.54262 4.20462 5.87213 4.53412L10.338 9L5.87213 13.4659C5.54262 13.7954 5.54262 14.3296 5.87213 14.6591C6.20163 14.9886 6.73587 14.9886 7.06537 14.6591L12.1279 9.59662C12.4574 9.26712 12.4574 8.73288 12.1279 8.40338L7.06537 3.34088C6.73587 3.01137 6.20163 3.01137 5.87213 3.34088Z"
+                    fill="white"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                class="flex justify-center items-center gap-3 pt-4"
+              >
+                <svg
+                  fill="none"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12.1279 3.34088C12.4574 3.67038 12.4574 4.20462 12.1279 4.53412L7.66199 9L12.1279 13.4659C12.4574 13.7954 12.4574 14.3296 12.1279 14.6591C11.7984 14.9886 11.2641 14.9886 10.9346 14.6591L5.87213 9.59662C5.54262 9.26712 5.54262 8.73288 5.87213 8.40338L10.9346 3.34088C11.2641 3.01137 11.7984 3.01137 12.1279 3.34088Z"
+                    fill="#334155"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <a
+                  class="text-slate-700 font-medium"
+                  href="/login"
+                >
+                  Back to Login
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

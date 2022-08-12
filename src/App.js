@@ -25,8 +25,8 @@ function App() {
 
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [notification, setNotification] = useState({
-      type: '',
-      message: ''
+    type: '',
+    message: ''
   });
 
   useEffect(() => {
@@ -52,26 +52,26 @@ function App() {
                 element={<Home />} 
               />
               <Route 
-                  path='/login' 
-                  element={<Login />} 
-                />
+                path='/login' 
+                element={<Login />} 
+              />
               <Route 
                 path='/signup' 
                 element={<SignUp />} 
               />
               <Route element={<RequireAuth />}>
                 <Route 
-                    path='/user' 
-                    element={<UserProfile />} 
-                  />
+                  path='/user' 
+                  element={<UserProfile />} 
+                />
                 <Route 
-                    path='/usermanagement' 
-                    element={<UserManagement />} 
-                  />
+                  path='/usermanagement' 
+                  element={<UserManagement />} 
+                />
                 <Route 
-                    path='/playermanagement' 
-                    element={<PlayerManagement />} 
-                  />
+                  path='/playermanagement' 
+                  element={<PlayerManagement />} 
+                />
                 <Route 
                   path='/player/:id' 
                   element={<PlayerProfile />} 

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './PlayerProfile.module.scss';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 
@@ -167,6 +166,7 @@ function PlayerProfile() {
                         {performance?.pp?.dribbling >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.dribbling >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.dribbling}</div>
                     </div>
                   </div>
                 </div>
@@ -182,6 +182,7 @@ function PlayerProfile() {
                         {performance?.pp?.passing >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.passing >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.passing}</div>
                     </div>
                   </div>
                 </div>
@@ -197,6 +198,7 @@ function PlayerProfile() {
                         {performance?.pp?.shooting >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.shooting >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.shooting}</div>
                     </div>
                   </div>
                  </div>
@@ -212,6 +214,7 @@ function PlayerProfile() {
                         {performance?.pp?.tackling >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.tackling >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.tackling}</div>
                     </div>
                   </div>
                 </div>
@@ -219,7 +222,7 @@ function PlayerProfile() {
 
               {/* ---Menthal  Values--- */}
               <div className="flex-col justify-center  w-full rounded-t sm:rounded-l sm:rounded-t-none shadow bg-white dark:bg-gray-800 mt-8">
-                {/* ---Header for Technical Perfomance Values--- */}
+                {/* ---Header for Menthal Perfomance Values--- */}
                 <div className="flex justify-center items-center w-full h-12 rounded-t sm:rounded-l sm:rounded-t-none shadow bg-white dark:bg-gray-800">
                   <div className="w-full mr-4 mb-4 lg:mb-0 flex justify-center items-center">
                     <div className="flex-col w-full">
@@ -241,6 +244,7 @@ function PlayerProfile() {
                         {performance?.pp?.aggression >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.aggression >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.aggression}</div>
                     </div>
                   </div>
                 </div>
@@ -256,6 +260,7 @@ function PlayerProfile() {
                         {performance?.pp?.concentration >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.concentration >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.concentration}</div>
                     </div>
                   </div>
                 </div>
@@ -271,6 +276,7 @@ function PlayerProfile() {
                         {performance?.pp?.leadership >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.leadership >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.leadership}</div>
                     </div>
                   </div>
                 </div>
@@ -286,6 +292,7 @@ function PlayerProfile() {
                         {performance?.pp?.teamwork >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.teamwork >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.teamwork}</div>
                     </div>
                   </div>
                 </div>
@@ -301,6 +308,7 @@ function PlayerProfile() {
                         {performance?.pp?.decisions >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.decisions >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.decisions}</div>
                     </div>
                   </div>
                 </div>
@@ -316,6 +324,7 @@ function PlayerProfile() {
                         {performance?.pp?.endurance >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.endurance >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.endurance}</div>
                     </div>
                   </div>
                 </div>
@@ -344,6 +353,7 @@ function PlayerProfile() {
                         {performance?.pp?.acceleration >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.acceleration >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.acceleration}</div>
                     </div>
                   </div>
                 </div>
@@ -359,6 +369,7 @@ function PlayerProfile() {
                         {performance?.pp?.jumping >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.jumping >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.jumping}</div>
                     </div>
                   </div>
                 </div>
@@ -374,6 +385,7 @@ function PlayerProfile() {
                         {performance?.pp?.leadership >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.leadership >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.leadership}</div>
                     </div>
                   </div>
                 </div>
@@ -389,6 +401,7 @@ function PlayerProfile() {
                         {performance?.pp?.teamwork >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.teamwork >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.teamwork}</div>
                     </div>
                   </div>
                 </div>
@@ -404,6 +417,7 @@ function PlayerProfile() {
                         {performance?.pp?.decisions >= 61 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                         {performance?.pp?.decisions >= 81 ? <div className="w-8 h-2 ml-1 bg-green-500"/> : <div className="w-8 h-2 ml-1 bg-slate-500"/>}
                       </div>
+                      <div className=" w-1/4 uppercase font-bold text-base mx-1 text-left">{performance?.pp?.decisions}</div>
                     </div>
                   </div>
                 </div>
@@ -413,13 +427,16 @@ function PlayerProfile() {
         </div>
       </div>
       <div>
-      <BarChart width={1000} height={500} data={performance?.data}>
-        <XAxis dataKey="name" stroke="#8884d8" />
-        <YAxis/>
-        <Tooltip/>
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <Bar dataKey="value" fill="#8884d8" barSize={30} />
-      </BarChart>
+      <div className="flex flex-wrap w-full items-center justify-center mt-16">
+        <BarChart width={1000} height={500} data={performance?.data}>
+          <XAxis dataKey="name" stroke="#8884d8" />
+          <YAxis/>
+          <Tooltip/>
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <Bar dataKey="value" fill="#8884d8" barSize={30} />
+        </BarChart>
+
+      </div>
       </div>
     </div>
   )

@@ -34,7 +34,6 @@ function Login() {
         type: 'error',
         delay: 5000
       });
-      // setLoginStatus("error");
     }
   }
 

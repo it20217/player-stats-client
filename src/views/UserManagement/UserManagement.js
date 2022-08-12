@@ -116,9 +116,9 @@ function UserManagement() {
                       <p className="mr-16">{created(user.created_at)}</p>
                     </td>
                     <td>
-                      {user.roleId === 1 
+                      {user.role_id === 1 
                         ? <p className="mr-16">Admin</p>
-                        : user.roleId === 2 ?
+                        : user.role_id === 2 ?
                           <p className="mr-16">Trainer</p>
                         : <p className="mr-16">User</p>
                       }

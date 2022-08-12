@@ -38,7 +38,7 @@ export const AuthContextProvider = (props) => {
         userId: token.id
       }
     } else {
-      contextValue.logout();
+      localStorage.clear();
     }
   }
   const [profile, setProfile] = useState(initialProfile);
@@ -65,7 +65,6 @@ export const AuthContextProvider = (props) => {
       });
       localStorage.setItem('player-stats', token);
     } catch {
-      contextValue.logout();
       localStorage.clear();
     }
   };

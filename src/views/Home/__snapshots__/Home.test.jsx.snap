@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="overflow-y-hidden"
+      >
+        <div
+          class="relative flex justify-center items-center md:flex md:justify-end"
+        >
+          <img
+            alt="santa"
+            class="soccer-player-image"
+            src="soccer-player.webp"
+          />
+          <div
+            class="w-full flex absolute justify-start flex-col items-center md:py-10 lg:py-20 xl:py-40 md:space-y-12 md:space-y-0"
+          >
+            <div
+              class=" py-40 sm:py-20  md:hidden"
+            />
+            <div
+              class="w-full custom sm:mt-96 md:mt-0 h-full flex lg:h-96 px-4 z-10 items-end md:items-end md:px-6 xl:px-20 whitespace-nowrap"
+            >
+              <h1
+                class="text-6xl font-bold text-gray-900 mr-6 "
+              >
+                Player 
+                <span
+                  class="text-6xl font-normal"
+                >
+                   perfomance
+                </span>
+              </h1>
+              <hr
+                class="w-2.5 h-16 bg-slate-700"
+              />
+              <h1
+                class="text-6xl font-bold text-gray-900 pl-7"
+              >
+                Talent
+                <span
+                  class="text-6xl font-normal"
+                >
+                   scouting
+                </span>
+              </h1>
+            </div>
+            <div
+              class="w-full custom h-full flex lg:h-96 px-4 z-10 items-start md:items-start md:px-6 xl:px-20 "
+            >
+              <button
+                class="mt-6 w-full md:w-auto lg:mt-8 py-2 md:py-3 px-10 flex justify-center duration-700 hover:-translate-y-1 ease-in-out items-center relative rounded-md text-lg font-medium text-white"
+              >
+                <p
+                  class="relative z-10"
+                >
+                  Explore Now
+                </p>
+                <img
+                  alt="gradient"
+                  class="absolute hidden md:block w-full h-full z-0"
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_8_btn.png"
+                />
+                <img
+                  alt="gradient"
+                  class="md:hidden w-full h-full z-0 absolute"
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_8-btn_mobile.png"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="overflow-y-hidden"
+    >
+      <div
+        class="relative flex justify-center items-center md:flex md:justify-end"
+      >
+        <img
+          alt="santa"
+          class="soccer-player-image"
+          src="soccer-player.webp"
+        />
+        <div
+          class="w-full flex absolute justify-start flex-col items-center md:py-10 lg:py-20 xl:py-40 md:space-y-12 md:space-y-0"
+        >
+          <div
+            class=" py-40 sm:py-20  md:hidden"
+          />
+          <div
+            class="w-full custom sm:mt-96 md:mt-0 h-full flex lg:h-96 px-4 z-10 items-end md:items-end md:px-6 xl:px-20 whitespace-nowrap"
+          >
+            <h1
+              class="text-6xl font-bold text-gray-900 mr-6 "
+            >
+              Player 
+              <span
+                class="text-6xl font-normal"
+              >
+                 perfomance
+              </span>
+            </h1>
+            <hr
+              class="w-2.5 h-16 bg-slate-700"
+            />
+            <h1
+              class="text-6xl font-bold text-gray-900 pl-7"
+            >
+              Talent
+              <span
+                class="text-6xl font-normal"
+              >
+                 scouting
+              </span>
+            </h1>
+          </div>
+          <div
+            class="w-full custom h-full flex lg:h-96 px-4 z-10 items-start md:items-start md:px-6 xl:px-20 "
+          >
+            <button
+              class="mt-6 w-full md:w-auto lg:mt-8 py-2 md:py-3 px-10 flex justify-center duration-700 hover:-translate-y-1 ease-in-out items-center relative rounded-md text-lg font-medium text-white"
+            >
+              <p
+                class="relative z-10"
+              >
+                Explore Now
+              </p>
+              <img
+                alt="gradient"
+                class="absolute hidden md:block w-full h-full z-0"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_8_btn.png"
+              />
+              <img
+                alt="gradient"
+                class="md:hidden w-full h-full z-0 absolute"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_8-btn_mobile.png"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
