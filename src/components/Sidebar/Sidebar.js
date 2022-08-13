@@ -31,7 +31,7 @@ function Sidebar() {
             </div>
           </div>
           {/* User management menu button */}
-          {role !== 3 && <div 
+          {role === 1 && <div 
             className="mt-4 ml-4 border-l-4 hover:border-slate-700 py-2 cursor-pointer border-transparent group bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
             onClick={()=> navigate('/usermanagement')}
           >
