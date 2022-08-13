@@ -19,7 +19,6 @@ function UserPage() {
       ? localStorage.getItem('player-stats') : "";
       const authHeader = "Bearer " + token;
       const { REACT_APP_BASE_URL } = process.env;
-      console.log(REACT_APP_BASE_URL)
       try {
         const response = await fetch(`${REACT_APP_BASE_URL}/user`, {
           method: 'GET',
