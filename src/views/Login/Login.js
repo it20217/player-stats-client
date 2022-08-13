@@ -26,7 +26,7 @@ function Login() {
 
     if (response.ok) {
       AuthCtx.login(JSON.parse(data).result);
-      navigate('/');
+      navigate('/user');
     } else {
       const json = JSON.parse(data);
       AuthCtx.notify({

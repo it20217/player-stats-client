@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
-
 function PlayerProfile() {
 
-  const { REACT_APP_BASE_URL } = process.env;
   const { id } = useParams();
   const [player, setPlayer] = useState();
   const [performance, setPerformance] = useState({data: [], pp: []});
@@ -18,6 +16,7 @@ function PlayerProfile() {
 
   useEffect(()=> {
     const getPlayer = async()=> {
+      const { REACT_APP_BASE_URL } = process.env;
       try {
         fetch(`${REACT_APP_BASE_URL}/player/${id}`)
         .then(res => res.json())

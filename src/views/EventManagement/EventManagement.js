@@ -2,7 +2,6 @@
 import { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 import { useNavigate } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
 import { noData } from "../../constants";
 
 
@@ -59,7 +58,6 @@ function EventManagement() {
       },
       body: JSON.stringify(newEvent)
     })
-    console.log(response.status)
     if (response.ok) {
       setReload(!reload);
     } else {

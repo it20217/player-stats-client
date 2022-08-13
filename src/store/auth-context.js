@@ -35,7 +35,8 @@ export const AuthContextProvider = (props) => {
         exp: token.exp,
         firstName: token.firstName,
         lastName: token.lastName,
-        userId: token.id
+        userId: token.id,
+        role: token.role
       }
     } else {
       localStorage.clear();
@@ -61,7 +62,8 @@ export const AuthContextProvider = (props) => {
         exp: profile.exp,
         firstName: profile.firstName,
         lastName: profile.lastName,
-        userId: profile.id
+        userId: profile.id,
+        role: profile.role
       });
       localStorage.setItem('player-stats', token);
     } catch {

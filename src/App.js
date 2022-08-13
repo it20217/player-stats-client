@@ -12,6 +12,7 @@ import PlayerManagement from './views/PlayerManagement/PlayerManagement';
 import PlayerProfile from './views/PlayerProfile/PlayerProfile';
 import PlayerEvaluation from './views/PlayerEvaluation/PlayerEvaluation';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import RequireAuthorization from './components/RequireAuthorization/RequireAuthorization';
 import UserManagement from './views/UserManagement/UserManagement';
 import EventManagement from './views/EventManagement/EventManagement';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -44,7 +45,7 @@ function App() {
     <div className='App'>
       <Header/>
       <div className='userContainer flex flex-row w-full justify-between'>
-        {isLoggedIn && path !== '/' &&<Sidebar/>}
+        {isLoggedIn && path !== '/' && <Sidebar/>}
           <div className="w-full">
             <Routes>
               <Route 
@@ -64,38 +65,40 @@ function App() {
                   path='/user' 
                   element={<UserProfile />} 
                 />
-                <Route 
-                  path='/usermanagement' 
-                  element={<UserManagement />} 
-                />
-                <Route 
-                  path='/playermanagement' 
-                  element={<PlayerManagement />} 
-                />
-                <Route 
-                  path='/player/:id' 
-                  element={<PlayerProfile />} 
-                /> 
-                <Route 
-                  path='/events' 
-                  element={<EventManagement />} 
-                />
-                <Route 
-                  path='/playerevaluation' 
-                  element={<PlayerEvaluation />} 
-                />
-                <Route 
-                  path='/playerevaluation/:eventId' 
-                  element={<PlayerEvaluation />} 
-                />
-                <Route 
-                  path='/playerevaluation/:eventId/assignment/:assignmentId' 
-                  element={<PlayerEvaluation />} 
-                />
-                <Route 
-                  path='/playerevaluation' 
-                  element={<PlayerEvaluation />} 
-                />
+                <Route element={<RequireAuthorization/>}>
+                  <Route 
+                    path='/usermanagement' 
+                    element={<UserManagement />} 
+                  />
+                  <Route 
+                    path='/playermanagement' 
+                    element={<PlayerManagement />} 
+                  />
+                  <Route 
+                    path='/player/:id' 
+                    element={<PlayerProfile />} 
+                  /> 
+                  <Route 
+                    path='/events' 
+                    element={<EventManagement />} 
+                  />
+                  <Route 
+                    path='/playerevaluation' 
+                    element={<PlayerEvaluation />} 
+                  />
+                  <Route 
+                    path='/playerevaluation/:eventId' 
+                    element={<PlayerEvaluation />} 
+                  />
+                  <Route 
+                    path='/playerevaluation/:eventId/assignment/:assignmentId' 
+                    element={<PlayerEvaluation />} 
+                  />
+                  <Route 
+                    path='/playerevaluation' 
+                    element={<PlayerEvaluation />} 
+                  />
+                </Route>
               </Route>
             </Routes>
           </div>

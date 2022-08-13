@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {IoHomeOutline} from 'react-icons/io5'
 import {FiUser} from 'react-icons/fi'
 import {IoFootballOutline} from 'react-icons/io5'
 import {GiSoccerField} from 'react-icons/gi'
-import styles from './Sidebar.module.scss'
+import AuthContext from '../../store/auth-context';
 
 function Sidebar() {
   let navigate = useNavigate();
+  const AuthCtx = useContext(AuthContext);
+  const role = AuthCtx?.profile?.role;
   const [sideBar, setsideBar] = useState();
 
   return(
@@ -19,7 +21,7 @@ function Sidebar() {
           {/* Home menu button */}
           <div 
             className="ml-4 border-l-4 hover:border-slate-700 py-2 cursor-pointer border-transparent group bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
-            onClick={()=> navigate('/user')}
+            onClick={()=> navigate('/')}
           >
             <div className="text-2xl ml-4 mr-3 text-gray-400 group-hover:text-slate-700">
               <IoHomeOutline/>
@@ -29,7 +31,7 @@ function Sidebar() {
             </div>
           </div>
           {/* User management menu button */}
-          <div 
+          {role !== 3 && <div 
             className="mt-4 ml-4 border-l-4 hover:border-slate-700 py-2 cursor-pointer border-transparent group bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
             onClick={()=> navigate('/usermanagement')}
           >
@@ -39,9 +41,9 @@ function Sidebar() {
             <div className="whitespace-nowrap text-sm leading-none text-slate-700 group-hover:text-slate-700">
               User management
             </div>
-          </div>
+          </div>}
           {/* Player management */}
-          <div 
+          {role !== 3 && <div 
             className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
             onClick={()=> navigate('/playermanagement')}
           >
@@ -51,9 +53,9 @@ function Sidebar() {
             <div className="whitespace-nowrap text-sm leading-none text-slate-700 group-hover:text-slate-700">
               Player management
             </div>
-          </div>
+          </div>}
           {/* Player evaluation */}
-          <div 
+          {role !== 3 && <div 
             className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
             onClick={()=> navigate('/playerevaluation')}
           >
@@ -63,9 +65,9 @@ function Sidebar() {
             <div className="whitespace-nowrap text-sm leading-none text-slate-700 group-hover:text-slate-700">
               Player evaluation form
             </div>
-          </div>
+          </div>}
           {/* Event management menu button */}
-          <div 
+          {role !== 3 && <div 
             className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center"
             onClick={()=> navigate('/events')}
           >
@@ -75,9 +77,9 @@ function Sidebar() {
             <div className="whitespace-nowrap text-sm leading-none text-slate-700 group-hover:text-slate-700">
               Event management
             </div>
-          </div>
+          </div>}
           {/* Settings menu button */}
-          <div className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center">
+          <div onClick={()=> navigate('/user')} className="mt-4 ml-4 border-l-4 hover:border-slate-700 border-transparent group py-2 cursor-pointer bg-gradient-to-r hover:from-slate-100 hover:to-white flex items-center">
             <div className="ml-4 mr-3 text-gray-400 group-hover:text-slate-700">
               <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

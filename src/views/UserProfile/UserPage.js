@@ -1,17 +1,45 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import AuthContext from '../../store/auth-context';
-import { useNavigate } from 'react-router-dom';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 function UserPage() {
   
   const AuthCtx = useContext(AuthContext);
   const profile = AuthCtx.profile;    
-   let navigate = useNavigate();
-  const [sideBar, setsideBar] = useState();
-  const [show, setShow] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [user, setUser] = useState();
+  const [error, setError] = useState();
+
+
+  useEffect(() => {
+
+    const getUserProfile = async()=> {
+      // Add json token to the header. It will be authentified by the server
+      const token = localStorage.hasOwnProperty('player-stats') 
+      ? localStorage.getItem('player-stats') : "";
+      const authHeader = "Bearer " + token;
+      const { REACT_APP_BASE_URL } = process.env;
+      console.log(REACT_APP_BASE_URL)
+      try {
+        const response = await fetch(`${REACT_APP_BASE_URL}/user`, {
+          method: 'GET',
+          headers: {
+            Authorization: authHeader
+          }
+        });
+        const json = await response.json();
+        setUser(json?.result);
+      } catch {
+        setError(true)
+      }
+    }
+    getUserProfile();
+  }, []);
+
+
 
   return (
+    <>
     <div className="hidden lg:flex w-full pr-6 mt-8">
       <div className="w-1/2 h-full hidden lg:flex items-center pl-6 pr-24">
           <div className="relative w-full">
@@ -93,6 +121,133 @@ function UserPage() {
           </div>
       </div>
     </div>
+    <div aria-label="form" tabIndex="0" className="focus:outline-none xl:w-10/12 w-full px-8">
+      {/* User Information */}
+      <h1 tabIndex="0" className="mt-12 focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Your profile</h1>
+      <div className="w-full py-6 flex flex-wrap items-center justify-center">
+        <div className="mt-16 flex justify-between border-b border-gray-200 pb-16">
+            <div className="w-full md:flex items-center lg:ml-24 lg:mt-0 mt-4">
+                <div className="md:flex-col">
+                    <label className="text-sm leading-none text-gray-800" id="firstName" >First name</label>
+                    <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="firstName" placeholder={user?.firstName} />
+                </div>
+                <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
+                    <label className="text-sm leading-none text-gray-800" id="lastName">Last name</label>
+                    <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={user?.lastName}/>
+                </div>
+                <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
+                    <label className="text-sm leading-none text-gray-800" id="lastName">Email</label>
+                    <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={user?.email}/>
+                </div>
+                <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
+                    <label className="text-sm leading-none text-gray-800" id="lastName">Phone</label>
+                    <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={user?.phone}/>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    {user?.players?.map((player, index) => {
+
+        const performance = {
+            dribbling: 0,
+            passing: 0,
+            shooting: 0,
+            tackling: 0,
+            aggression: 0,
+            concentration: 0,
+            leadership: 0,
+            teamwork: 0,
+            decisions: 0,
+            endurance: 0,
+            acceleration: 0,
+            jumping: 0,
+            sprint30m: 0
+        };
+        let ppNumber = 0;
+        player?.assignments?.forEach(assignment => {
+            assignment.player_performances?.forEach(pp => {
+            ppNumber ++;
+            performance.dribbling += pp.dribbling;
+            performance.passing  += pp.passing;
+            performance.shooting += pp.shooting;
+            performance.tackling  += pp.tackling;
+            performance.aggression += pp.aggression;
+            performance.concentration += pp.concentration;
+            performance.leadership += pp.leadership;
+            performance.teamwork += pp.teamwork;
+            performance.decisions += pp.decisions;
+            performance.endurance += pp.endurance;
+            performance.acceleration += pp.acceleration;
+            performance.jumping += pp.jumping;
+            performance.sprint30m += pp.sprint30m;
+            });
+        });
+        // Average
+
+        performance.dribbling = performance.dribbling / ppNumber;
+        performance.passing  = performance.passing  / ppNumber;
+        performance.shooting = performance.shooting  / ppNumber;
+        performance.tackling  = performance.tackling  / ppNumber;
+        performance.aggression = performance.aggression  / ppNumber;
+        performance.concentration = performance.concentration  / ppNumber;
+        performance.leadership = performance.leadership  / ppNumber;
+        performance.teamwork = performance.teamwork  / ppNumber;
+        performance.decisions = performance.decisions  / ppNumber;
+        performance.endurance = performance.endurance  / ppNumber;
+        performance.acceleration = performance.acceleration  / ppNumber;
+        performance.jumping = performance.jumping  / ppNumber;
+        performance.sprint30m = performance.sprint30m  / ppNumber;
+
+        let data =  [];
+        for (const [key, value] of Object.entries(performance)) {
+            data.push({name:  key, value: value})
+        }
+
+
+      return <div key={index}>
+      <div aria-label="form" tabIndex="0" className="focus:outline-none xl:w-10/12 w-full px-8">
+        {/* Player Information */}
+        <h1 tabIndex="0" className="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Player Information</h1>
+        <div className="w-full py-6 flex flex-wrap items-center justify-center">
+            <div className="mt-16 flex justify-between border-b border-gray-200 pb-16">
+                <div className="w-full md:flex items-center lg:ml-24 lg:mt-0 mt-4">
+                    <div className="md:flex-col">
+                        <label className="text-sm leading-none text-gray-800" id="firstName">First name</label>
+                        <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="firstName" placeholder={player?.firstName} />
+                    </div>
+                    <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
+                        <label className="text-sm leading-none text-gray-800" id="lastName">Last name</label>
+                        <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={player?.lastName}/>
+                    </div>
+                    <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
+                        <label className="text-sm leading-none text-gray-800" id="lastName">Birth year</label>
+                        <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={player?.birthYear}/>
+                    </div>
+                    <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
+                        <label className="text-sm leading-none text-gray-800" id="lastName">Home club</label>
+                        <input type="name" tabIndex="0" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder={player?.homeClub}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {data?.length > 0 && <h1 tabIndex="0" className="mt-12 focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Player performance</h1>}
+      </div>
+      {data?.length > 0 &&
+        <div className="flex flex-wrap w-full items-center justify-center mt-16">
+          <BarChart width={1000} height={500} data={data}>
+          <XAxis dataKey="name" stroke="#8884d8" />
+          <YAxis/>
+          <Tooltip/>
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <Bar dataKey="value" fill="#8884d8" barSize={30} />
+        </BarChart>
+        </div>
+      }
+    </div>
+
+    })}
+    </>
   );
 
 }
